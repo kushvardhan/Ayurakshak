@@ -1,88 +1,90 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { 
-  Heart, 
-  Shield, 
-  Users, 
-  Leaf, 
-  Award, 
-  Clock, 
-  MapPin, 
-  Phone,
-  Stethoscope,
-  Home
-} from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { motion, useInView } from "framer-motion";
+import {
+  Award,
+  Clock,
+  Heart,
+  Home,
+  Leaf,
+  MapPin,
+  Phone,
+  Shield,
+  Stethoscope,
+  Users,
+} from "lucide-react";
+import { useRef } from "react";
 
 const features = [
   {
     icon: Heart,
     title: "100% Natural Treatment",
-    description: "Zero side effects with authentic Ayurvedic medicines and therapies",
+    description:
+      "Zero side effects with authentic Ayurvedic medicines and therapies",
     color: "text-red-500",
-    bgColor: "bg-red-50"
+    bgColor: "bg-red-50",
   },
   {
     icon: Shield,
     title: "Cashless & Reimbursement",
     description: "100% cashless facility with insurance reimbursement support",
     color: "text-blue-500",
-    bgColor: "bg-blue-50"
+    bgColor: "bg-blue-50",
   },
   {
     icon: Users,
     title: "Expert Team",
     description: "900+ certified Ayurveda doctors and Panchakarma therapists",
     color: "text-purple-500",
-    bgColor: "bg-purple-50"
+    bgColor: "bg-purple-50",
   },
   {
     icon: MapPin,
     title: "Pan India Network",
     description: "55+ hospitals and 70+ clinics across India for easy access",
     color: "text-green-500",
-    bgColor: "bg-green-50"
+    bgColor: "bg-green-50",
   },
   {
     icon: Award,
     title: "Proven Success",
-    description: "Success in kidney failure, liver failure, and heart disease reversal",
+    description:
+      "Success in kidney failure, liver failure, and heart disease reversal",
     color: "text-yellow-500",
-    bgColor: "bg-yellow-50"
+    bgColor: "bg-yellow-50",
   },
   {
     icon: Clock,
     title: "Easy EMI Options",
-    description: "Pay in EMI with 0% interest facility for affordable treatment",
+    description:
+      "Pay in EMI with 0% interest facility for affordable treatment",
     color: "text-indigo-500",
-    bgColor: "bg-indigo-50"
-  }
+    bgColor: "bg-indigo-50",
+  },
 ];
 
 const treatments = [
   {
     icon: Stethoscope,
     title: "Ayurveda",
-    description: "Traditional Ayurvedic medicines and treatments"
+    description: "Traditional Ayurvedic medicines and treatments",
   },
   {
     icon: Leaf,
     title: "Panchakarma Therapies",
-    description: "Detoxification and rejuvenation treatments"
+    description: "Detoxification and rejuvenation treatments",
   },
   {
     icon: Heart,
     title: "Diet & Lifestyle",
-    description: "Personalized nutrition and lifestyle guidance"
+    description: "Personalized nutrition and lifestyle guidance",
   },
   {
     icon: Home,
     title: "Naturopathy",
-    description: "Natural healing methods and therapies"
-  }
+    description: "Natural healing methods and therapies",
+  },
 ];
 
 export default function Features() {
@@ -90,26 +92,26 @@ export default function Features() {
   const isInView = useInView(ref, { once: true, margin: "-100px" });
 
   return (
-    <section id="features" className="py-20 bg-white" ref={ref}>
+    <section id="features" className="py-12 md:py-16 bg-white" ref={ref}>
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
-          className="text-center mb-16"
+          className="text-center mb-8 md:mb-12"
         >
-          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-6">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-3 md:mb-4">
             Why Choose <span className="gradient-text">Ayurakshak</span>
           </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Experience the best of traditional Ayurveda with modern healthcare facilities 
-            and comprehensive support for your wellness journey.
+          <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
+            Experience the best of traditional Ayurveda with modern healthcare
+            facilities and comprehensive support for your wellness journey.
           </p>
         </motion.div>
 
         {/* Features Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-20">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-6 mb-12 md:mb-16">
           {features.map((feature, index) => (
             <motion.div
               key={index}
@@ -128,8 +130,12 @@ export default function Features() {
                   >
                     <feature.icon className={`w-8 h-8 ${feature.color}`} />
                   </motion.div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-4">{feature.title}</h3>
-                  <p className="text-gray-600 leading-relaxed">{feature.description}</p>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    {feature.title}
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    {feature.description}
+                  </p>
                 </CardContent>
               </Card>
             </motion.div>
@@ -148,8 +154,8 @@ export default function Features() {
               How We <span className="gradient-text">Treat Diseases</span>
             </h3>
             <p className="text-gray-600 max-w-2xl mx-auto">
-              Our holistic approach combines multiple traditional healing methods 
-              for comprehensive treatment and lasting wellness.
+              Our holistic approach combines multiple traditional healing
+              methods for comprehensive treatment and lasting wellness.
             </p>
           </div>
 
@@ -170,7 +176,9 @@ export default function Features() {
                 >
                   <treatment.icon className="w-6 h-6 text-green-600" />
                 </motion.div>
-                <h4 className="font-semibold text-gray-900 mb-2">{treatment.title}</h4>
+                <h4 className="font-semibold text-gray-900 mb-2">
+                  {treatment.title}
+                </h4>
                 <p className="text-sm text-gray-600">{treatment.description}</p>
               </motion.div>
             ))}
@@ -189,8 +197,8 @@ export default function Features() {
               Ready to Start Your Healing Journey?
             </h3>
             <p className="text-green-100 mb-8 max-w-2xl mx-auto">
-              Join thousands of patients who have experienced the power of authentic 
-              Ayurvedic treatment with our expert team.
+              Join thousands of patients who have experienced the power of
+              authentic Ayurvedic treatment with our expert team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.a

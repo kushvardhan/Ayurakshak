@@ -1,15 +1,13 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Mail, Phone, MapPin, Send, Loader2 } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Textarea } from "@/components/ui/textarea";
-import { Label } from "@/components/ui/label";
 import { Card, CardContent } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { Textarea } from "@/components/ui/textarea";
+import { motion, useInView } from "framer-motion";
+import { Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
 
 interface FormData {
@@ -22,46 +20,48 @@ const contactInfo = [
   {
     icon: Mail,
     title: "Email Us",
-    content: "info@ayurakshak.org",
-    href: "mailto:info@ayurakshak.org",
+    content: "ayurakshak2@gmail.com",
+    href: "mailto:ayurakshak2@gmail.com",
     color: "text-blue-600",
-    bgColor: "bg-blue-50"
+    bgColor: "bg-blue-50",
   },
   {
     icon: Phone,
     title: "Call Us",
-    content: "+91 90000 00000",
-    href: "tel:+919000000000",
+    content: "+91 92596 51812",
+    href: "tel:+919259651812",
     color: "text-green-600",
-    bgColor: "bg-green-50"
+    bgColor: "bg-green-50",
   },
   {
     icon: MapPin,
     title: "Visit Us",
-    content: "Pan India Network\n55+ Hospitals & 70+ Clinics",
-    href: "#",
+    content: "H no -1202 NIRMALA A, RADHA VALLEY, MATHURA, UP, India",
+    href: "https://maps.google.com/?q=H+no+-1202+NIRMALA+A,+RADHA+VALLEY,+MATHURA,+UP,+India",
     color: "text-purple-600",
-    bgColor: "bg-purple-50"
-  }
+    bgColor: "bg-purple-50",
+  },
 ];
 
 export default function Contact() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   const [formData, setFormData] = useState<FormData>({
     name: "",
     email: "",
-    message: ""
+    message: "",
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -70,10 +70,10 @@ export default function Contact() {
     setIsSubmitting(true);
 
     try {
-      const response = await fetch('/api/contact', {
-        method: 'POST',
+      const response = await fetch("/api/contact", {
+        method: "POST",
         headers: {
-          'Content-Type': 'application/json',
+          "Content-Type": "application/json",
         },
         body: JSON.stringify(formData),
       });
@@ -84,11 +84,13 @@ export default function Contact() {
         toast.success(result.message);
         setFormData({ name: "", email: "", message: "" });
       } else {
-        toast.error(result.message || 'Something went wrong. Please try again.');
+        toast.error(
+          result.message || "Something went wrong. Please try again."
+        );
       }
     } catch (error) {
-      console.error('Form submission error:', error);
-      toast.error('Network error. Please check your connection and try again.');
+      console.error("Form submission error:", error);
+      toast.error("Network error. Please check your connection and try again.");
     } finally {
       setIsSubmitting(false);
     }
@@ -108,7 +110,7 @@ export default function Contact() {
             Get in <span className="gradient-text">Touch</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Ready to start your healing journey? Contact us for consultations, 
+            Ready to start your healing journey? Contact us for consultations,
             partnerships, or any questions about our Ayurvedic treatments.
           </p>
         </motion.div>
@@ -126,9 +128,9 @@ export default function Contact() {
                 Let's Start a Conversation
               </h3>
               <p className="text-gray-600 leading-relaxed mb-8">
-                We're here to help you on your wellness journey. Whether you need 
-                treatment guidance, want to partner with us, or have questions about 
-                our services, we'd love to hear from you.
+                We're here to help you on your wellness journey. Whether you
+                need treatment guidance, want to partner with us, or have
+                questions about our services, we'd love to hear from you.
               </p>
             </div>
 
@@ -146,12 +148,18 @@ export default function Contact() {
                 >
                   <Card className="border-2 border-transparent hover:border-green-200 transition-all duration-300">
                     <CardContent className="p-6 flex items-center space-x-4">
-                      <div className={`w-12 h-12 rounded-full ${info.bgColor} flex items-center justify-center`}>
+                      <div
+                        className={`w-12 h-12 rounded-full ${info.bgColor} flex items-center justify-center`}
+                      >
                         <info.icon className={`w-6 h-6 ${info.color}`} />
                       </div>
                       <div>
-                        <h4 className="font-semibold text-gray-900">{info.title}</h4>
-                        <p className="text-gray-600 whitespace-pre-line">{info.content}</p>
+                        <h4 className="font-semibold text-gray-900">
+                          {info.title}
+                        </h4>
+                        <p className="text-gray-600 whitespace-pre-line">
+                          {info.content}
+                        </p>
                       </div>
                     </CardContent>
                   </Card>
@@ -166,10 +174,12 @@ export default function Contact() {
               transition={{ duration: 0.8, delay: 0.8 }}
               className="bg-white rounded-xl p-6 shadow-lg"
             >
-              <h4 className="font-semibold text-gray-900 mb-3">Response Time</h4>
+              <h4 className="font-semibold text-gray-900 mb-3">
+                Response Time
+              </h4>
               <p className="text-gray-600 text-sm">
-                We typically respond to all inquiries within 24 hours. For urgent 
-                medical consultations, please call us directly.
+                We typically respond to all inquiries within 24 hours. For
+                urgent medical consultations, please call us directly.
               </p>
             </motion.div>
           </motion.div>
@@ -182,8 +192,10 @@ export default function Contact() {
           >
             <Card className="shadow-2xl border-0">
               <CardContent className="p-8">
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">Send us a Message</h3>
-                
+                <h3 className="text-2xl font-bold text-gray-900 mb-6">
+                  Send us a Message
+                </h3>
+
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div>
                     <Label htmlFor="name" className="text-gray-700 font-medium">
@@ -202,7 +214,10 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <Label htmlFor="email" className="text-gray-700 font-medium">
+                    <Label
+                      htmlFor="email"
+                      className="text-gray-700 font-medium"
+                    >
                       Email Address *
                     </Label>
                     <Input
@@ -218,7 +233,10 @@ export default function Contact() {
                   </div>
 
                   <div>
-                    <Label htmlFor="message" className="text-gray-700 font-medium">
+                    <Label
+                      htmlFor="message"
+                      className="text-gray-700 font-medium"
+                    >
                       Message *
                     </Label>
                     <Textarea
@@ -233,7 +251,10 @@ export default function Contact() {
                     />
                   </div>
 
-                  <motion.div whileHover={{ scale: 1.02 }} whileTap={{ scale: 0.98 }}>
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
+                    whileTap={{ scale: 0.98 }}
+                  >
                     <Button
                       type="submit"
                       disabled={isSubmitting}
