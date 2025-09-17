@@ -13,6 +13,7 @@ import {
   MessageCircle,
   Phone,
   Twitter,
+  Youtube,
 } from "lucide-react";
 import Image from "next/image";
 
@@ -68,6 +69,12 @@ const socialLinks = [
     href: "https://wa.me/919259651812",
     icon: MessageCircle,
     color: "hover:text-green-600",
+  },
+  {
+    name: "YouTube",
+    href: "https://youtube.com/@ayurakshak?si=AJZeDTuuYMsGwB26",
+    icon: Youtube,
+    color: "hover:text-red-600",
   },
 ];
 
@@ -279,14 +286,13 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
-          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 text-gray-400 text-sm mb-4 md:mb-0">
+          <div className="flex flex-col items-center space-y-2 text-gray-400 text-sm mb-4 md:mb-0">
             <div className="flex items-center space-x-2">
               <span>© 2025 Ayurakshak. All rights reserved.</span>
               <Heart className="w-4 h-4 text-red-500" />
               <span>Made with care for your wellness</span>
             </div>
             <div className="flex items-center space-x-2">
-              <span>•</span>
               <span>Developed by</span>
               <a
                 href="https://kush-personal-portfolio-my-portfolio.vercel.app/"

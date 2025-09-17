@@ -2,65 +2,32 @@
 
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
-import { ArrowRight, Heart, Leaf, Shield } from "lucide-react";
-
-const floatingIcons = [
-  { icon: Heart, delay: 0, x: "10%", y: "20%" },
-  { icon: Leaf, delay: 0.5, x: "80%", y: "30%" },
-  { icon: Shield, delay: 1, x: "15%", y: "70%" },
-  { icon: Heart, delay: 1.5, x: "85%", y: "80%" },
-];
+import { ArrowRight } from "lucide-react";
 
 export default function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen md:min-h-screen flex items-center justify-center overflow-hidden pt-16 md:pt-0"
     >
       {/* Background Image */}
       <div
         className="absolute inset-0 bg-cover bg-center bg-no-repeat"
         style={{
-          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`,
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.4)), url('https://images.unsplash.com/photo-1576091160399-112ba8d25d1f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`,
         }}
       />
 
-      {/* Floating Background Icons */}
-      {floatingIcons.map((item, index) => (
-        <motion.div
-          key={index}
-          initial={{ opacity: 0, scale: 0 }}
-          animate={{
-            opacity: 0.2,
-            scale: 1,
-            y: [0, -20, 0],
-          }}
-          transition={{
-            delay: item.delay,
-            duration: 2,
-            y: {
-              duration: 4,
-              repeat: Infinity,
-              ease: "easeInOut",
-            },
-          }}
-          className="absolute text-white"
-          style={{ left: item.x, top: item.y }}
-        >
-          <item.icon className="w-16 h-16 md:w-24 md:h-24" />
-        </motion.div>
-      ))}
-
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+      <div className="relative z-10 max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="space-y-8"
+          className="space-y-6 md:space-y-8"
         >
           {/* Main Heading */}
           <motion.h1
-            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-white"
+            className="text-3xl sm:text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-white"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
@@ -71,7 +38,7 @@ export default function Hero() {
 
           {/* Subtitle */}
           <motion.p
-            className="text-lg md:text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed"
+            className="text-base sm:text-lg md:text-xl lg:text-2xl text-gray-200 max-w-3xl mx-auto leading-relaxed px-4"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
@@ -83,7 +50,7 @@ export default function Hero() {
 
           {/* Stats */}
           <motion.div
-            className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto"
+            className="grid grid-cols-3 gap-4 md:gap-8 max-w-2xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.8 }}
@@ -98,17 +65,19 @@ export default function Hero() {
                 whileHover={{ scale: 1.05 }}
                 className="text-center"
               >
-                <div className="text-3xl md:text-4xl font-bold gradient-text">
+                <div className="text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold gradient-text">
                   {stat.number}
                 </div>
-                <div className="text-gray-600 font-medium">{stat.label}</div>
+                <div className="text-gray-300 text-xs sm:text-sm md:text-base font-medium">
+                  {stat.label}
+                </div>
               </motion.div>
             ))}
           </motion.div>
 
           {/* CTA Buttons */}
           <motion.div
-            className="flex flex-col sm:flex-row gap-4 justify-center items-center"
+            className="flex flex-col sm:flex-row gap-3 md:gap-4 justify-center items-center pt-2"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
@@ -116,10 +85,10 @@ export default function Hero() {
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
               <Button
                 size="lg"
-                className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-green-600 hover:bg-green-700 text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Explore Our Work
-                <ArrowRight className="ml-2 w-5 h-5" />
+                <ArrowRight className="ml-2 w-4 h-4 md:w-5 md:h-5" />
               </Button>
             </motion.div>
 
@@ -127,30 +96,10 @@ export default function Hero() {
               <Button
                 variant="outline"
                 size="lg"
-                className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-6 text-lg font-semibold rounded-full transition-all duration-300"
+                className="border-2 border-green-600 text-green-400 hover:bg-green-600 hover:text-white px-6 py-3 md:px-8 md:py-4 text-base md:text-lg font-semibold rounded-full transition-all duration-300"
               >
                 Join Our Mission
               </Button>
-            </motion.div>
-          </motion.div>
-
-          {/* Scroll Indicator */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-            className="absolute bottom-8 left-1/2 transform -translate-x-1/2"
-          >
-            <motion.div
-              animate={{ y: [0, 10, 0] }}
-              transition={{ duration: 2, repeat: Infinity }}
-              className="w-6 h-10 border-2 border-green-600 rounded-full flex justify-center"
-            >
-              <motion.div
-                animate={{ y: [0, 12, 0] }}
-                transition={{ duration: 2, repeat: Infinity }}
-                className="w-1 h-3 bg-green-600 rounded-full mt-2"
-              />
             </motion.div>
           </motion.div>
         </motion.div>

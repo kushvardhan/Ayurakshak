@@ -1,11 +1,10 @@
 "use client";
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef, useState } from "react";
-import { Play, Star, Quote, Heart } from "lucide-react";
-import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion, useInView } from "framer-motion";
+import { Heart, Play, Quote, Star } from "lucide-react";
+import { useRef, useState } from "react";
 
 const patientStories = [
   {
@@ -14,11 +13,12 @@ const patientStories = [
     age: 45,
     condition: "Kidney Disease",
     location: "Delhi",
-    story: "After 6 months of Ayurvedic treatment at Ayurakshak, my kidney function improved significantly. The doctors were very caring and the treatment was completely natural.",
+    story:
+      "After 6 months of Ayurvedic treatment at Ayurakshak, my kidney function improved significantly. The doctors were very caring and the treatment was completely natural.",
     videoId: "dQw4w9WgXcQ", // Sample YouTube video ID
     thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
     rating: 5,
-    treatmentDuration: "6 months"
+    treatmentDuration: "6 months",
   },
   {
     id: 2,
@@ -26,11 +26,12 @@ const patientStories = [
     age: 38,
     condition: "Diabetes",
     location: "Mumbai",
-    story: "My blood sugar levels are now completely normal thanks to Ayurakshak's natural treatment. No more insulin injections needed!",
+    story:
+      "My blood sugar levels are now completely normal thanks to Ayurakshak's natural treatment. No more insulin injections needed!",
     videoId: "dQw4w9WgXcQ", // Sample YouTube video ID
     thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
     rating: 5,
-    treatmentDuration: "4 months"
+    treatmentDuration: "4 months",
   },
   {
     id: 3,
@@ -38,11 +39,12 @@ const patientStories = [
     age: 52,
     condition: "Heart Disease",
     location: "Ahmedabad",
-    story: "The Panchakarma therapy and herbal medicines helped me avoid heart surgery. I feel healthier than ever before.",
+    story:
+      "The Panchakarma therapy and herbal medicines helped me avoid heart surgery. I feel healthier than ever before.",
     videoId: "dQw4w9WgXcQ", // Sample YouTube video ID
     thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
     rating: 5,
-    treatmentDuration: "8 months"
+    treatmentDuration: "8 months",
   },
   {
     id: 4,
@@ -50,12 +52,13 @@ const patientStories = [
     age: 41,
     condition: "Liver Disease",
     location: "Jaipur",
-    story: "Ayurakshak's treatment reversed my liver damage completely. The doctors explained everything clearly and gave me hope.",
+    story:
+      "Ayurakshak's treatment reversed my liver damage completely. The doctors explained everything clearly and gave me hope.",
     videoId: "dQw4w9WgXcQ", // Sample YouTube video ID
     thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
     rating: 5,
-    treatmentDuration: "5 months"
-  }
+    treatmentDuration: "5 months",
+  },
 ];
 
 export default function PatientStories() {
@@ -88,8 +91,8 @@ export default function PatientStories() {
             </h2>
           </div>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Real stories of healing and hope from patients who found their path to wellness 
-            through our natural Ayurvedic treatments.
+            Real stories of healing and hope from patients who found their path
+            to wellness through our natural Ayurvedic treatments.
           </p>
         </motion.div>
 
@@ -111,7 +114,7 @@ export default function PatientStories() {
                     <img
                       src={story.thumbnail}
                       alt={`${story.name} testimonial`}
-                      className="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-32 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
                       <motion.button
@@ -123,35 +126,50 @@ export default function PatientStories() {
                         <Play className="w-8 h-8 ml-1" />
                       </motion.button>
                     </div>
-                    
+
                     {/* Treatment Badge */}
                     <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                      <span className="text-sm font-semibold text-orange-600">{story.condition}</span>
+                      <span className="text-sm font-semibold text-orange-600">
+                        {story.condition}
+                      </span>
                     </div>
                   </div>
 
                   {/* Content */}
-                  <div className="p-6">
+                  <div className="p-4 md:p-5">
                     {/* Rating */}
                     <div className="flex items-center mb-3">
                       {[...Array(story.rating)].map((_, i) => (
-                        <Star key={i} className="w-4 h-4 text-yellow-500 fill-current" />
+                        <Star
+                          key={i}
+                          className="w-4 h-4 text-yellow-500 fill-current"
+                        />
                       ))}
-                      <span className="ml-2 text-sm text-gray-600">({story.rating}.0)</span>
+                      <span className="ml-2 text-sm text-gray-600">
+                        ({story.rating}.0)
+                      </span>
                     </div>
 
                     {/* Quote */}
                     <div className="relative mb-4">
                       <Quote className="w-6 h-6 text-orange-300 absolute -top-2 -left-1" />
-                      <p className="text-gray-700 italic pl-6 leading-relaxed">{story.story}</p>
+                      <p className="text-sm md:text-base text-gray-700 italic pl-4 md:pl-5 leading-relaxed line-clamp-3">
+                        {story.story}
+                      </p>
                     </div>
 
                     {/* Patient Info */}
                     <div className="border-t border-gray-200 pt-4">
-                      <h4 className="font-semibold text-gray-900 mb-1">{story.name}, {story.age}</h4>
-                      <p className="text-sm text-gray-600 mb-2">{story.location}</p>
+                      <h4 className="font-semibold text-gray-900 mb-1">
+                        {story.name}, {story.age}
+                      </h4>
+                      <p className="text-sm text-gray-600 mb-2">
+                        {story.location}
+                      </p>
                       <div className="flex justify-between items-center text-sm">
-                        <span className="text-orange-600 font-medium">Treatment: {story.treatmentDuration}</span>
+                        <span className="text-orange-600 font-medium">
+                          Treatment: {story.treatmentDuration}
+                        </span>
                         <Button
                           size="sm"
                           variant="outline"
@@ -181,25 +199,36 @@ export default function PatientStories() {
               Ready to Start Your Healing Journey?
             </h3>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              Join thousands of patients who have experienced the power of natural healing. 
-              Your success story could be next!
+              Join thousands of patients who have experienced the power of
+              natural healing. Your success story could be next!
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Button
                   size="lg"
                   className="bg-orange-600 hover:bg-orange-700 text-white px-8 py-3 rounded-full"
-                  onClick={() => window.open('tel:+919259651812', '_self')}
+                  onClick={() => window.open("tel:+919259651812", "_self")}
                 >
                   Book Free Consultation
                 </Button>
               </motion.div>
-              <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+              <motion.div
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+              >
                 <Button
                   variant="outline"
                   size="lg"
                   className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white px-8 py-3 rounded-full"
-                  onClick={() => window.open('https://wa.me/919259651812?text=Hi! I would like to know more about Ayurvedic treatment options.', '_blank')}
+                  onClick={() =>
+                    window.open(
+                      "https://wa.me/919259651812?text=Hi! I would like to know more about Ayurvedic treatment options.",
+                      "_blank"
+                    )
+                  }
                 >
                   WhatsApp Us
                 </Button>
