@@ -1,4 +1,4 @@
-import mongoose, { Schema, model, models } from "mongoose";
+import { Schema, model, models } from "mongoose";
 
 const QueryFormSchema = new Schema(
   {
@@ -19,7 +19,15 @@ const QueryFormSchema = new Schema(
     enquiry: {
       type: String,
       required: true,
-      enum: ["General", "Appointment", "Request Callback"],
+      enum: [
+        "Kidney Disease",
+        "Liver Disease",
+        "Cancer",
+        "Heart Disease",
+        "Blood Pressure",
+        "Diabetes",
+        "Others",
+      ],
     },
   },
   { timestamps: true }

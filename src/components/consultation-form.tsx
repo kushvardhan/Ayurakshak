@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { submitQueryForm } from "@/lib/actions/formActions";
 import { motion, useInView } from "framer-motion";
 import {
   Calendar,
@@ -29,19 +30,11 @@ interface ConsultationFormData {
 
 const diseases = [
   "Kidney Disease",
-  "Liver Problem",
+  "Liver Disease",
   "Heart Disease",
   "Cancer",
-  "Piles",
-  "Joint Pain",
-  "Knee Pain",
   "Blood Pressure",
   "Diabetes",
-  "Thyroid",
-  "Migraine",
-  "Vitiligo",
-  "Infertility Male",
-  "Infertility Female",
   "Others",
 ];
 
@@ -75,66 +68,77 @@ export default function ConsultationForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    // Validation
+    // Basic validation
     if (!formData.name.trim()) {
       toast.error("Please enter your name");
       setIsSubmitting(false);
       return;
     }
-    if (
-      !formData.age ||
-      parseInt(formData.age) < 1 ||
-      parseInt(formData.age) > 120
-    ) {
-      toast.error("Please enter a valid age");
+    if (!formData.age.trim()) {
+      toast.error("Please enter your age");
       setIsSubmitting(false);
       return;
     }
-    if (!formData.mobile.trim() || !/^[6-9]\d{9}$/.test(formData.mobile)) {
-      toast.error("Please enter a valid 10-digit mobile number");
+    if (!formData.gender.trim()) {
+      toast.error("Please select your gender");
       setIsSubmitting(false);
       return;
     }
-    if (
-      !formData.email.trim() ||
-      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
-    ) {
-      toast.error("Please enter a valid email address");
+    if (!formData.location.trim()) {
+      toast.error("Please enter your location");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!formData.email.trim()) {
+      toast.error("Please enter your email");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!formData.mobile.trim()) {
+      toast.error("Please enter your mobile number");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!formData.enquiry.trim()) {
+      toast.error("Please select an enquiry type");
       setIsSubmitting(false);
       return;
     }
 
     try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+      const result = await submitQueryForm(formData);
 
-      if (!response.ok) {
-        throw new Error("Failed to submit form");
+      if (result.success) {
+        toast.success(
+          result.message ||
+            "Thank you for your inquiry! Our medical team will contact you within 24 hours."
+        );
+        setFormData({
+          name: "",
+          age: "",
+          gender: "",
+          location: "",
+          email: "",
+          mobile: "",
+          enquiry: "",
+        });
+      } else {
+        if (result.errors) {
+          // Show validation errors
+          // eslint-disable-next-line @typescript-eslint/no-explicit-any
+          result.errors.forEach((error: any) => {
+            toast.error(`${error.path?.join(".")}: ${error.message}`);
+          });
+        } else {
+          toast.error(
+            result.message || "Something went wrong. Please try again."
+          );
+        }
       }
-
-      const result = await response.json();
-
-      toast.success(
-        "Thank you for your inquiry! Our representative will contact you soon to discuss your request."
-      );
-      setFormData({
-        name: "",
-        age: "",
-        gender: "",
-        location: "",
-        email: "",
-        mobile: "",
-        enquiry: "",
-      });
     } catch (error) {
       console.error("Form submission error:", error);
       toast.error(
-        "Something went wrong. Please try again or call us directly."
+        "Something went wrong. Please try again or call us directly at +91 92596 51812"
       );
     } finally {
       setIsSubmitting(false);

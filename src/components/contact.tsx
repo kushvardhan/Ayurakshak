@@ -5,6 +5,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
+import { submitMessageForm } from "@/lib/actions/formActions";
 import { motion, useInView } from "framer-motion";
 import { Loader2, Mail, MapPin, Phone, Send } from "lucide-react";
 import { useRef, useState } from "react";
@@ -69,28 +70,49 @@ export default function Contact() {
     e.preventDefault();
     setIsSubmitting(true);
 
-    try {
-      const response = await fetch("/api/contact", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
-      });
+    // Basic validation
+    if (!formData.name.trim()) {
+      toast.error("Please enter your name");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!formData.email.trim()) {
+      toast.error("Please enter your email");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!formData.message.trim()) {
+      toast.error("Please enter your message");
+      setIsSubmitting(false);
+      return;
+    }
 
-      const result = await response.json();
+    try {
+      const result = await submitMessageForm(formData);
 
       if (result.success) {
-        toast.success(result.message);
+        toast.success(
+          result.message ||
+            "Thank you for your message! We will get back to you soon."
+        );
         setFormData({ name: "", email: "", message: "" });
       } else {
-        toast.error(
-          result.message || "Something went wrong. Please try again."
-        );
+        if (result.errors) {
+          // Show validation errors
+          result.errors.forEach((error: any) => {
+            toast.error(`${error.path?.join(".")}: ${error.message}`);
+          });
+        } else {
+          toast.error(
+            result.message || "Something went wrong. Please try again."
+          );
+        }
       }
     } catch (error) {
       console.error("Form submission error:", error);
-      toast.error("Network error. Please check your connection and try again.");
+      toast.error(
+        "Something went wrong. Please try again or call us directly at +91 92596 51812"
+      );
     } finally {
       setIsSubmitting(false);
     }
