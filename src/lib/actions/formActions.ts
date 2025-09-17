@@ -2,15 +2,15 @@
 
 import { connectDB } from "@/db/db.connection";
 import { z } from "zod";
-import MessageForm from "@/models/Message";
-import QueryForm from "@/models/Query";
+import MessageForm from "@/models/MessageForm";
+import QueryForm from "@/models/QueryForm";
 
 // ==========================
 // Validation Schemas
 // ==========================
 const querySchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100),
-  age: z.string().min(1, "Age is required"),
+  age: z.coerce.number().min(1, "Age is required").max(120, "Invalid age"),
   gender: z.enum(["Male", "Female", "Other"]),
   location: z.string().trim().min(1, "Location is required").max(200),
   email: z.string().email("Invalid email format"),
