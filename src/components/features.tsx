@@ -3,16 +3,16 @@
 import { Card, CardContent } from "@/components/ui/card";
 import { motion, useInView } from "framer-motion";
 import {
-  Award,
-  Clock,
-  Heart,
-  Home,
-  Leaf,
-  MapPin,
-  Phone,
-  Shield,
-  Stethoscope,
-  Users,
+    Award,
+    Clock,
+    Heart,
+    Home,
+    Leaf,
+    MapPin,
+    Phone,
+    Shield,
+    Stethoscope,
+    Users,
 } from "lucide-react";
 import { useRef } from "react";
 
@@ -122,13 +122,13 @@ export default function Features() {
               className="group"
             >
               <Card className="h-full border-2 border-transparent hover:border-green-200 transition-all duration-300 shadow-lg hover:shadow-2xl">
-                <CardContent className="p-8 text-center">
+                <CardContent className="p-4 md:p-6 text-center">
                   <motion.div
                     whileHover={{ scale: 1.1, rotate: 5 }}
                     transition={{ duration: 0.3 }}
-                    className={`w-16 h-16 mx-auto mb-6 rounded-full ${feature.bgColor} flex items-center justify-center`}
+                    className={`w-12 h-12 md:w-14 md:h-14 mx-auto mb-3 md:mb-4 rounded-full ${feature.bgColor} flex items-center justify-center`}
                   >
-                    <feature.icon className={`w-8 h-8 ${feature.color}`} />
+                    <feature.icon className={`w-6 h-6 md:w-7 md:h-7 ${feature.color}`} />
                   </motion.div>
                   <h3 className="text-xl font-bold text-gray-900 mb-4">
                     {feature.title}
