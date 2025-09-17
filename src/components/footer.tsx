@@ -42,19 +42,19 @@ const navigation = {
 const socialLinks = [
   {
     name: "Facebook",
-    href: "https://facebook.com/ayurakshak",
+    href: "https://www.facebook.com/share/1MbWHTp7D8/",
     icon: Facebook,
     color: "hover:text-blue-600"
   },
   {
     name: "Twitter",
-    href: "https://twitter.com/ayurakshak",
+    href: "https://x.com/Krishna08241873/status/1968224814684049541",
     icon: Twitter,
     color: "hover:text-blue-400"
   },
   {
     name: "Instagram",
-    href: "https://instagram.com/ayurakshak",
+    href: "https://www.instagram.com/ayu_rakshak3?igsh=MXB2YXhkejU3Zm85NQ==",
     icon: Instagram,
     color: "hover:text-pink-600"
   },
@@ -66,7 +66,7 @@ const socialLinks = [
   },
   {
     name: "WhatsApp",
-    href: "https://wa.me/919000000000",
+    href: "https://wa.me/919259651812",
     icon: MessageCircle,
     color: "hover:text-green-600"
   },

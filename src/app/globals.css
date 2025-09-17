@@ -122,15 +122,19 @@
 
 @layer utilities {
   .gradient-text {
-    @apply bg-gradient-to-r from-green-600 via-emerald-500 to-teal-600 bg-clip-text text-transparent;
+    @apply bg-gradient-to-r from-orange-600 via-red-500 to-pink-600 bg-clip-text text-transparent;
   }
 
   .gradient-bg {
-    @apply bg-gradient-to-br from-green-50 via-emerald-50 to-teal-50;
+    @apply bg-gradient-to-br from-orange-50 via-red-50 to-pink-50;
+  }
+
+  .warm-gradient-bg {
+    @apply bg-gradient-to-br from-orange-100 via-yellow-50 to-red-100;
   }
 
   .glass-effect {
-    @apply backdrop-blur-md bg-white/80 border border-white/20;
+    @apply backdrop-blur-md bg-white/90 border border-orange-200/30;
   }
 
   .animate-float {
@@ -139,6 +143,11 @@
 
   .animate-pulse-slow {
     animation: pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .warm-shadow {
+    box-shadow: 0 10px 25px -5px rgba(251, 146, 60, 0.1),
+      0 10px 10px -5px rgba(251, 146, 60, 0.04);
   }
 }
 
