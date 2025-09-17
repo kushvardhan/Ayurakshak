@@ -1,21 +1,20 @@
 "use client";
 
-import { motion } from "framer-motion";
-import Image from "next/image";
-import Link from "next/link";
-import { 
-  Mail, 
-  Phone, 
-  MapPin, 
-  Facebook, 
-  Twitter, 
-  Instagram, 
-  Linkedin,
-  MessageCircle,
-  Heart,
-  ArrowUp
-} from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { motion } from "framer-motion";
+import {
+  ArrowUp,
+  Facebook,
+  Heart,
+  Instagram,
+  Linkedin,
+  Mail,
+  MapPin,
+  MessageCircle,
+  Phone,
+  Twitter,
+} from "lucide-react";
+import Image from "next/image";
 
 const navigation = {
   main: [
@@ -44,37 +43,37 @@ const socialLinks = [
     name: "Facebook",
     href: "https://www.facebook.com/share/1MbWHTp7D8/",
     icon: Facebook,
-    color: "hover:text-blue-600"
+    color: "hover:text-blue-600",
   },
   {
     name: "Twitter",
     href: "https://x.com/Krishna08241873/status/1968224814684049541",
     icon: Twitter,
-    color: "hover:text-blue-400"
+    color: "hover:text-blue-400",
   },
   {
     name: "Instagram",
     href: "https://www.instagram.com/ayu_rakshak3?igsh=MXB2YXhkejU3Zm85NQ==",
     icon: Instagram,
-    color: "hover:text-pink-600"
+    color: "hover:text-pink-600",
   },
   {
     name: "LinkedIn",
-    href: "https://linkedin.com/company/ayurakshak",
+    href: "https://www.linkedin.com/in/ayu-rakshak-0b9a91384?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app",
     icon: Linkedin,
-    color: "hover:text-blue-700"
+    color: "hover:text-blue-700",
   },
   {
     name: "WhatsApp",
     href: "https://wa.me/919259651812",
     icon: MessageCircle,
-    color: "hover:text-green-600"
+    color: "hover:text-green-600",
   },
 ];
 
 export default function Footer() {
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
@@ -108,19 +107,24 @@ export default function Footer() {
                 className="rounded-full"
               />
               <div>
-                <h3 className="text-xl font-bold gradient-text">AYURAKSHAK</h3>
-                <p className="text-gray-400 text-sm">Care • Restore • Protect</p>
+                <h3 className="text-xl font-bold text-orange-600">
+                  AYURAKSHAK
+                </h3>
+                <p className="text-gray-400 text-sm">
+                  Care • Restore • Protect
+                </p>
               </div>
             </motion.div>
-            
+
             <motion.p
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-gray-400 mb-6 leading-relaxed"
             >
-              Dedicated to reviving ancient healing wisdom through accessible 
-              Ayurveda health camps, medicinal plant gardens, and holistic education.
+              Dedicated to reviving ancient healing wisdom through accessible
+              Ayurveda health camps, medicinal plant gardens, and holistic
+              education.
             </motion.p>
 
             {/* Contact Info */}
@@ -132,15 +136,19 @@ export default function Footer() {
             >
               <div className="flex items-center space-x-3 text-gray-400">
                 <Mail className="w-4 h-4" />
-                <span className="text-sm">info@ayurakshak.org</span>
+                <span className="text-sm">ayurakshak2@gmail.com</span>
               </div>
               <div className="flex items-center space-x-3 text-gray-400">
                 <Phone className="w-4 h-4" />
-                <span className="text-sm">+91 90000 00000</span>
+                <span className="text-sm">+91 92596 51812</span>
               </div>
               <div className="flex items-start space-x-3 text-gray-400">
                 <MapPin className="w-4 h-4 mt-1" />
-                <span className="text-sm">55+ Hospitals & 70+ Clinics<br />Pan India Network</span>
+                <span className="text-sm">
+                  H no -1202 NIRMALA A, RADHA VALLEY,
+                  <br />
+                  MATHURA, UP, India
+                </span>
               </div>
             </motion.div>
           </div>
@@ -217,7 +225,7 @@ export default function Footer() {
                 size="sm"
                 variant="secondary"
                 className="w-full bg-white text-green-600 hover:bg-gray-100"
-                onClick={() => window.open('tel:+919000000000', '_self')}
+                onClick={() => window.open("tel:+919259651812", "_self")}
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Call Now
@@ -271,20 +279,43 @@ export default function Footer() {
           transition={{ duration: 0.6, delay: 0.7 }}
           className="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center"
         >
-          <div className="flex items-center space-x-2 text-gray-400 text-sm mb-4 md:mb-0">
-            <span>© 2025 Ayurakshak. All rights reserved.</span>
-            <Heart className="w-4 h-4 text-red-500" />
-            <span>Made with care for your wellness</span>
+          <div className="flex flex-col md:flex-row items-center space-y-2 md:space-y-0 md:space-x-4 text-gray-400 text-sm mb-4 md:mb-0">
+            <div className="flex items-center space-x-2">
+              <span>© 2025 Ayurakshak. All rights reserved.</span>
+              <Heart className="w-4 h-4 text-red-500" />
+              <span>Made with care for your wellness</span>
+            </div>
+            <div className="flex items-center space-x-2">
+              <span>•</span>
+              <span>Developed by</span>
+              <a
+                href="https://kush-personal-portfolio-my-portfolio.vercel.app/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-green-400 hover:text-green-300 transition-colors duration-300 font-medium"
+              >
+                Kush Vardhan
+              </a>
+            </div>
           </div>
-          
+
           <div className="flex space-x-6 text-gray-400 text-sm">
-            <a href="#" className="hover:text-green-400 transition-colors duration-300">
+            <a
+              href="#"
+              className="hover:text-green-400 transition-colors duration-300"
+            >
               Privacy Policy
             </a>
-            <a href="#" className="hover:text-green-400 transition-colors duration-300">
+            <a
+              href="#"
+              className="hover:text-green-400 transition-colors duration-300"
+            >
               Terms of Service
             </a>
-            <a href="#" className="hover:text-green-400 transition-colors duration-300">
+            <a
+              href="#"
+              className="hover:text-green-400 transition-colors duration-300"
+            >
               Disclaimer
             </a>
           </div>

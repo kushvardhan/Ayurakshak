@@ -1,14 +1,20 @@
 "use client";
 
-import { useState } from "react";
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import { Send, Loader2, User, Mail, Phone, MapPin, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
-import { Card, CardContent } from "@/components/ui/card";
+import { motion, useInView } from "framer-motion";
+import {
+  Calendar,
+  Loader2,
+  Mail,
+  MapPin,
+  Phone,
+  Send,
+  User,
+} from "lucide-react";
+import { useRef, useState } from "react";
 import { toast } from "sonner";
 
 interface ConsultationFormData {
@@ -24,7 +30,7 @@ interface ConsultationFormData {
 const diseases = [
   "Kidney Disease",
   "Liver Problem",
-  "Heart Disease", 
+  "Heart Disease",
   "Cancer",
   "Piles",
   "Joint Pain",
@@ -36,13 +42,13 @@ const diseases = [
   "Vitiligo",
   "Infertility Male",
   "Infertility Female",
-  "Others"
+  "Others",
 ];
 
 export default function ConsultationForm() {
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
-  
+
   const [formData, setFormData] = useState<ConsultationFormData>({
     name: "",
     age: "",
@@ -50,16 +56,18 @@ export default function ConsultationForm() {
     location: "",
     email: "",
     mobile: "",
-    enquiry: ""
+    enquiry: "",
   });
-  
+
   const [isSubmitting, setIsSubmitting] = useState(false);
 
-  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>) => {
+  const handleInputChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement>
+  ) => {
     const { name, value } = e.target;
-    setFormData(prev => ({
+    setFormData((prev) => ({
       ...prev,
-      [name]: value
+      [name]: value,
     }));
   };
 
@@ -67,11 +75,53 @@ export default function ConsultationForm() {
     e.preventDefault();
     setIsSubmitting(true);
 
+    // Validation
+    if (!formData.name.trim()) {
+      toast.error("Please enter your name");
+      setIsSubmitting(false);
+      return;
+    }
+    if (
+      !formData.age ||
+      parseInt(formData.age) < 1 ||
+      parseInt(formData.age) > 120
+    ) {
+      toast.error("Please enter a valid age");
+      setIsSubmitting(false);
+      return;
+    }
+    if (!formData.mobile.trim() || !/^[6-9]\d{9}$/.test(formData.mobile)) {
+      toast.error("Please enter a valid 10-digit mobile number");
+      setIsSubmitting(false);
+      return;
+    }
+    if (
+      !formData.email.trim() ||
+      !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(formData.email)
+    ) {
+      toast.error("Please enter a valid email address");
+      setIsSubmitting(false);
+      return;
+    }
+
     try {
-      // Simulate API call
-      await new Promise(resolve => setTimeout(resolve, 2000));
-      
-      toast.success("Thank you for your inquiry! Our representative will contact you soon to discuss your request.");
+      const response = await fetch("/api/contact", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (!response.ok) {
+        throw new Error("Failed to submit form");
+      }
+
+      const result = await response.json();
+
+      toast.success(
+        "Thank you for your inquiry! Our representative will contact you soon to discuss your request."
+      );
       setFormData({
         name: "",
         age: "",
@@ -79,11 +129,13 @@ export default function ConsultationForm() {
         location: "",
         email: "",
         mobile: "",
-        enquiry: ""
+        enquiry: "",
       });
     } catch (error) {
-      console.error('Form submission error:', error);
-      toast.error('Something went wrong. Please try again or call us directly.');
+      console.error("Form submission error:", error);
+      toast.error(
+        "Something went wrong. Please try again or call us directly."
+      );
     } finally {
       setIsSubmitting(false);
     }
@@ -116,7 +168,10 @@ export default function ConsultationForm() {
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Name */}
                     <div>
-                      <Label htmlFor="name" className="text-gray-700 font-medium flex items-center mb-2">
+                      <Label
+                        htmlFor="name"
+                        className="text-gray-700 font-medium flex items-center mb-2"
+                      >
                         <User className="w-4 h-4 mr-2" />
                         Your Name *
                       </Label>
@@ -134,7 +189,10 @@ export default function ConsultationForm() {
 
                     {/* Age */}
                     <div>
-                      <Label htmlFor="age" className="text-gray-700 font-medium flex items-center mb-2">
+                      <Label
+                        htmlFor="age"
+                        className="text-gray-700 font-medium flex items-center mb-2"
+                      >
                         <Calendar className="w-4 h-4 mr-2" />
                         Age *
                       </Label>
@@ -154,7 +212,10 @@ export default function ConsultationForm() {
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Gender */}
                     <div>
-                      <Label htmlFor="gender" className="text-gray-700 font-medium mb-2 block">
+                      <Label
+                        htmlFor="gender"
+                        className="text-gray-700 font-medium mb-2 block"
+                      >
                         Gender *
                       </Label>
                       <select
@@ -174,7 +235,10 @@ export default function ConsultationForm() {
 
                     {/* Location */}
                     <div>
-                      <Label htmlFor="location" className="text-gray-700 font-medium flex items-center mb-2">
+                      <Label
+                        htmlFor="location"
+                        className="text-gray-700 font-medium flex items-center mb-2"
+                      >
                         <MapPin className="w-4 h-4 mr-2" />
                         Location *
                       </Label>
@@ -194,7 +258,10 @@ export default function ConsultationForm() {
                   <div className="grid md:grid-cols-2 gap-6">
                     {/* Email */}
                     <div>
-                      <Label htmlFor="email" className="text-gray-700 font-medium flex items-center mb-2">
+                      <Label
+                        htmlFor="email"
+                        className="text-gray-700 font-medium flex items-center mb-2"
+                      >
                         <Mail className="w-4 h-4 mr-2" />
                         Email ID *
                       </Label>
@@ -212,7 +279,10 @@ export default function ConsultationForm() {
 
                     {/* Mobile */}
                     <div>
-                      <Label htmlFor="mobile" className="text-gray-700 font-medium flex items-center mb-2">
+                      <Label
+                        htmlFor="mobile"
+                        className="text-gray-700 font-medium flex items-center mb-2"
+                      >
                         <Phone className="w-4 h-4 mr-2" />
                         Mobile Number *
                       </Label>
@@ -231,7 +301,10 @@ export default function ConsultationForm() {
 
                   {/* Enquiry */}
                   <div>
-                    <Label htmlFor="enquiry" className="text-gray-700 font-medium mb-2 block">
+                    <Label
+                      htmlFor="enquiry"
+                      className="text-gray-700 font-medium mb-2 block"
+                    >
                       Enquiry *
                     </Label>
                     <select
@@ -244,14 +317,16 @@ export default function ConsultationForm() {
                     >
                       <option value="">Select Enquiry</option>
                       {diseases.map((disease) => (
-                        <option key={disease} value={disease}>{disease}</option>
+                        <option key={disease} value={disease}>
+                          {disease}
+                        </option>
                       ))}
                     </select>
                   </div>
 
                   {/* Submit Button */}
-                  <motion.div 
-                    whileHover={{ scale: 1.02 }} 
+                  <motion.div
+                    whileHover={{ scale: 1.02 }}
                     whileTap={{ scale: 0.98 }}
                     className="text-center pt-4"
                   >
@@ -287,7 +362,9 @@ export default function ConsultationForm() {
           className="text-center mt-12"
         >
           <div className="bg-white rounded-xl p-6 border border-orange-200 warm-shadow max-w-md mx-auto">
-            <h3 className="font-bold text-gray-900 mb-4">Need Immediate Help?</h3>
+            <h3 className="font-bold text-gray-900 mb-4">
+              Need Immediate Help?
+            </h3>
             <div className="space-y-3">
               <div className="flex items-center justify-center space-x-2 text-gray-600">
                 <Phone className="w-4 h-4" />
@@ -299,7 +376,12 @@ export default function ConsultationForm() {
               </div>
               <Button
                 className="w-full bg-green-600 hover:bg-green-700 text-white mt-4"
-                onClick={() => window.open('https://wa.me/919259651812?text=Hi! I need immediate consultation for my health condition.', '_blank')}
+                onClick={() =>
+                  window.open(
+                    "https://wa.me/919259651812?text=Hi! I need immediate consultation for my health condition.",
+                    "_blank"
+                  )
+                }
               >
                 WhatsApp Now
               </Button>

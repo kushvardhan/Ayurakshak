@@ -1,8 +1,8 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
 import { ArrowRight, Heart, Leaf, Shield } from "lucide-react";
-import { Button } from "@/components/ui/button";
 
 const floatingIcons = [
   { icon: Heart, delay: 0, x: "10%", y: "20%" },
@@ -13,14 +13,25 @@ const floatingIcons = [
 
 export default function Hero() {
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center overflow-hidden gradient-bg">
+    <section
+      id="home"
+      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+    >
+      {/* Background Image */}
+      <div
+        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
+        style={{
+          backgroundImage: `linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('https://images.unsplash.com/photo-1559757148-5c350d0d3c56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80')`,
+        }}
+      />
+
       {/* Floating Background Icons */}
       {floatingIcons.map((item, index) => (
         <motion.div
           key={index}
           initial={{ opacity: 0, scale: 0 }}
-          animate={{ 
-            opacity: 0.1, 
+          animate={{
+            opacity: 0.2,
             scale: 1,
             y: [0, -20, 0],
           }}
@@ -30,10 +41,10 @@ export default function Hero() {
             y: {
               duration: 4,
               repeat: Infinity,
-              ease: "easeInOut"
-            }
+              ease: "easeInOut",
+            },
           }}
-          className="absolute text-green-500"
+          className="absolute text-white"
           style={{ left: item.x, top: item.y }}
         >
           <item.icon className="w-16 h-16 md:w-24 md:h-24" />
@@ -48,29 +59,30 @@ export default function Hero() {
           className="space-y-8"
         >
           {/* Main Heading */}
-          <motion.h1 
-            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight"
+          <motion.h1
+            className="text-4xl md:text-6xl lg:text-7xl font-bold leading-tight text-white"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
             <span className="block">Healing Communities</span>
-            <span className="block gradient-text">with Nature-Led Care</span>
+            <span className="block text-green-400">with Natural Ayurveda</span>
           </motion.h1>
 
           {/* Subtitle */}
-          <motion.p 
-            className="text-lg md:text-xl lg:text-2xl text-gray-600 max-w-4xl mx-auto leading-relaxed"
+          <motion.p
+            className="text-lg md:text-xl lg:text-2xl text-gray-200 max-w-4xl mx-auto leading-relaxed"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Ayurakshak combines traditional Ayurveda with modern outreach — 
-            health camps, sustainable livelihoods, and green initiatives across India.
+            Ayurakshak NGO provides free Ayurvedic treatment, health camps, and
+            natural healing to underserved communities across India. Join us in
+            our mission to heal with nature.
           </motion.p>
 
           {/* Stats */}
-          <motion.div 
+          <motion.div
             className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-3xl mx-auto"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
@@ -95,25 +107,25 @@ export default function Hero() {
           </motion.div>
 
           {/* CTA Buttons */}
-          <motion.div 
+          <motion.div
             className="flex flex-col sm:flex-row gap-4 justify-center items-center"
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 1 }}
           >
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                size="lg" 
+              <Button
+                size="lg"
                 className="bg-green-600 hover:bg-green-700 text-white px-8 py-6 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300"
               >
                 Explore Our Work
                 <ArrowRight className="ml-2 w-5 h-5" />
               </Button>
             </motion.div>
-            
+
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 size="lg"
                 className="border-2 border-green-600 text-green-600 hover:bg-green-600 hover:text-white px-8 py-6 text-lg font-semibold rounded-full transition-all duration-300"
               >
