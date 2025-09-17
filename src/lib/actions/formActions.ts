@@ -43,26 +43,12 @@ export async function submitQueryForm(rawData: unknown) {
     const data = querySchema.parse(rawData);
 
     // Save to DB
-    const form = await QueryForm.create(data);
-
-    // Convert Mongoose document to plain object
-    const plainForm = {
-      _id: form._id.toString(),
-      name: form.name,
-      age: form.age,
-      gender: form.gender,
-      location: form.location,
-      email: form.email,
-      mobile: form.mobile,
-      enquiry: form.enquiry,
-      createdAt: form.createdAt,
-      updatedAt: form.updatedAt,
-    };
+    await QueryForm.create(data);
 
     return {
       success: true,
-      message: "Query submitted successfully!",
-      form: plainForm,
+      message:
+        "Query submitted successfully! Our medical team will contact you within 24 hours.",
     };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
@@ -94,9 +80,12 @@ export async function submitMessageForm(rawData: unknown) {
     const data = messageSchema.parse(rawData);
 
     // Save to DB
-    const form = await MessageForm.create(data);
+    await MessageForm.create(data);
 
-    return { success: true, message: "Message sent successfully!", form };
+    return {
+      success: true,
+      message: "Thank you for your message! We will get back to you soon.",
+    };
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
   } catch (error: any) {
     console.error("MessageForm Error:", error);

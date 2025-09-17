@@ -38,7 +38,6 @@ const navigation = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -121,7 +120,8 @@ export default function Navbar() {
           {/* Contact Info & CTA */}
           <div className="hidden lg:flex items-center space-x-4">
             <div className="flex items-center space-x-2 text-sm text-zinc-400">
-              <Phone className="w-4 h-4" /><span>+91 92596 51812</span>
+              <Phone className="w-4 h-4" />
+              <span>+91 92596 51812</span>
             </div>
             <Button className="bg-green-600 hover:bg-green-700 text-white">
               Get Consultation
