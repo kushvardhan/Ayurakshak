@@ -55,7 +55,7 @@ export default function Navbar() {
       animate={{ y: 0 }}
       transition={{ duration: 0.5 }}
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled ? "glass-effect shadow-lg" : "bg-black/30 backdrop-blur-sm"
+        isScrolled ? "glass-effect shadow-lg" : "bg-black/40 backdrop-blur-sm"
       }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -76,7 +76,7 @@ export default function Navbar() {
               <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-green-600">
                 Ayurakshak
               </h1>
-              <p className="text-xs sm:text-sm text-gray-600 hidden sm:block">
+              <p className="text-xs sm:text-sm text-zinc-500 hidden sm:block">
                 Care • Restore • Protect
               </p>
             </div>
@@ -90,7 +90,7 @@ export default function Navbar() {
                   href={item.href}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className="text-zinc-600 hover:text-green-300 font-medium transition-colors duration-200 flex items-center space-x-1"
+                  className="text-zinc-400 hover:text-green-300 font-medium transition-colors duration-200 flex items-center space-x-1"
                 >
                   <span>{item.name}</span>
                   {item.dropdown && (
@@ -106,7 +106,7 @@ export default function Navbar() {
                         <a
                           key={dropdownItem.name}
                           href={dropdownItem.href}
-                          className="block px-4 py-2 text-sm text-gray-300 hover:bg-green-50 hover:text-green-300 transition-colors duration-200"
+                          className="block px-4 py-2 text-sm text-gray-600 hover:bg-green-50 hover:text-green-600 transition-colors duration-200"
                         >
                           {dropdownItem.name}
                         </a>
@@ -120,9 +120,8 @@ export default function Navbar() {
 
           {/* Contact Info & CTA */}
           <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-zinc-500">
-              <Phone className="w-4 h-4" />
-              <span>+91 92596 51812</span>
+            <div className="flex items-center space-x-2 text-sm text-zinc-400">
+              <Phone className="w-4 h-4" /><span>+91 92596 51812</span>
             </div>
             <Button className="bg-green-600 hover:bg-green-700 text-white">
               Get Consultation
@@ -135,7 +134,7 @@ export default function Navbar() {
               variant="ghost"
               size="sm"
               onClick={() => setIsOpen(!isOpen)}
-              className="p-2"
+              className="p-2 text-zinc-500 font-bold"
             >
               {isOpen ? (
                 <X className="w-6 h-6" />
@@ -155,7 +154,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="lg:hidden glass-effect border-t border-white/20"
+            className="lg:hidden glass-effect border-t border-white/50"
           >
             <div className="px-4 py-6 space-y-4">
               {navigation.map((item) => (

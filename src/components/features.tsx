@@ -208,7 +208,7 @@ export default function Features() {
                 className="bg-white text-green-600 px-8 py-3 rounded-full font-semibold flex items-center space-x-2 hover:bg-gray-100 transition-colors duration-300"
               >
                 <Phone className="w-5 h-5" />
-                <span>Call Now: +91 90000 00000</span>
+                <span>Call Now: +91 92596 51812</span>
               </motion.a>
               <motion.a
                 href="#contact"
