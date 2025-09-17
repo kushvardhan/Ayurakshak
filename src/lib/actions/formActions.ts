@@ -1,9 +1,9 @@
 "use server";
 
 import { connectDB } from "@/db/db.connection";
-import MessageForm from "@/model/Message.Model";
-import QueryForm from "@/model/Query.Model";
 import { z } from "zod";
+import MessageForm from "../../model/Message";
+import QueryForm from "../../model/Query";
 
 // ==========================
 // Validation Schemas
