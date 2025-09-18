@@ -68,50 +68,49 @@ export default function Contact() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Quick validation with immediate feedback
+    const validationErrors = [];
+    if (!formData.name.trim()) validationErrors.push("Name is required");
+    if (!formData.email.trim()) validationErrors.push("Email is required");
+    if (!formData.message.trim()) validationErrors.push("Message is required");
+
+    if (validationErrors.length > 0) {
+      toast.error(validationErrors[0]);
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Basic validation
-    if (!formData.name.trim()) {
-      toast.error("Please enter your name");
-      setIsSubmitting(false);
-      return;
-    }
-    if (!formData.email.trim()) {
-      toast.error("Please enter your email");
-      setIsSubmitting(false);
-      return;
-    }
-    if (!formData.message.trim()) {
-      toast.error("Please enter your message");
-      setIsSubmitting(false);
-      return;
-    }
+    // Show immediate optimistic feedback
+    toast.loading("Sending your message...", { id: "contact-submit" });
 
     try {
       const result = await submitMessageForm(formData);
 
       if (result.success) {
         toast.success(
-          result.message ||
-            "Thank you for your message! We will get back to you soon."
+          "🎉 Message sent successfully! We will get back to you soon.",
+          { id: "contact-submit", duration: 5000 }
         );
         setFormData({ name: "", email: "", message: "" });
       } else {
         if (result.errors) {
-          // Show validation errors
-          result.errors.forEach((error: any) => {
-            toast.error(`${error.path?.join(".")}: ${error.message}`);
-          });
+          // Show validation errors with better formatting
+          const errorMessage = result.errors[0]?.message || "Validation failed";
+          toast.error(errorMessage, { id: "contact-submit" });
         } else {
           toast.error(
-            result.message || "Something went wrong. Please try again."
+            result.message || "Something went wrong. Please try again.",
+            { id: "contact-submit" }
           );
         }
       }
     } catch (error) {
       console.error("Form submission error:", error);
       toast.error(
-        "Something went wrong. Please try again or call us directly at +91 92596 51812"
+        "Network error. Please check your connection or call us directly at +91 92596 51812",
+        { id: "contact-submit", duration: 6000 }
       );
     } finally {
       setIsSubmitting(false);

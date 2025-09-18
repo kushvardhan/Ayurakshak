@@ -66,53 +66,42 @@ export default function ConsultationForm() {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    // Quick validation with immediate feedback
+    const validationErrors = [];
+    if (!formData.name.trim()) validationErrors.push("Name is required");
+    if (!formData.age.trim()) validationErrors.push("Age is required");
+    if (!formData.gender.trim()) validationErrors.push("Gender is required");
+    if (!formData.location.trim())
+      validationErrors.push("Location is required");
+    if (!formData.email.trim()) validationErrors.push("Email is required");
+    if (!formData.mobile.trim())
+      validationErrors.push("Mobile number is required");
+    if (!formData.enquiry.trim())
+      validationErrors.push("Enquiry type is required");
+
+    if (validationErrors.length > 0) {
+      toast.error(validationErrors[0]);
+      return;
+    }
+
     setIsSubmitting(true);
 
-    // Basic validation
-    if (!formData.name.trim()) {
-      toast.error("Please enter your name");
-      setIsSubmitting(false);
-      return;
-    }
-    if (!formData.age.trim()) {
-      toast.error("Please enter your age");
-      setIsSubmitting(false);
-      return;
-    }
-    if (!formData.gender.trim()) {
-      toast.error("Please select your gender");
-      setIsSubmitting(false);
-      return;
-    }
-    if (!formData.location.trim()) {
-      toast.error("Please enter your location");
-      setIsSubmitting(false);
-      return;
-    }
-    if (!formData.email.trim()) {
-      toast.error("Please enter your email");
-      setIsSubmitting(false);
-      return;
-    }
-    if (!formData.mobile.trim()) {
-      toast.error("Please enter your mobile number");
-      setIsSubmitting(false);
-      return;
-    }
-    if (!formData.enquiry.trim()) {
-      toast.error("Please select an enquiry type");
-      setIsSubmitting(false);
-      return;
-    }
+    // Show immediate optimistic feedback
+    toast.loading("Submitting your consultation request...", {
+      id: "consultation-submit",
+    });
 
     try {
       const result = await submitQueryForm(formData);
 
       if (result.success) {
         toast.success(
-          result.message ||
-            "Thank you for your inquiry! Our medical team will contact you within 24 hours."
+          "🎉 Consultation request submitted successfully! Our medical team will contact you within 24 hours.",
+          { id: "consultation-submit", duration: 5000 }
         );
+
+        // Reset form with smooth animation
         setFormData({
           name: "",
           age: "",
@@ -124,21 +113,21 @@ export default function ConsultationForm() {
         });
       } else {
         if (result.errors) {
-          // Show validation errors
-          // eslint-disable-next-line @typescript-eslint/no-explicit-any
-          result.errors.forEach((error: any) => {
-            toast.error(`${error.path?.join(".")}: ${error.message}`);
-          });
+          // Show validation errors with better formatting
+          const errorMessage = result.errors[0]?.message || "Validation failed";
+          toast.error(errorMessage, { id: "consultation-submit" });
         } else {
           toast.error(
-            result.message || "Something went wrong. Please try again."
+            result.message || "Something went wrong. Please try again.",
+            { id: "consultation-submit" }
           );
         }
       }
     } catch (error) {
       console.error("Form submission error:", error);
       toast.error(
-        "Something went wrong. Please try again or call us directly at +91 92596 51812"
+        "Network error. Please check your connection or call us directly at +91 92596 51812",
+        { id: "consultation-submit", duration: 6000 }
       );
     } finally {
       setIsSubmitting(false);
