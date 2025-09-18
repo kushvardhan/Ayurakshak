@@ -202,7 +202,7 @@ export default function Features() {
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.a
-                href="tel:+919000000000"
+                href="tel:+919259651812"
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 className="bg-white text-green-600 px-8 py-3 rounded-full font-semibold flex items-center space-x-2 hover:bg-gray-100 transition-colors duration-300"

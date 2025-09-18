@@ -41,7 +41,7 @@ const products = [
   }
 ];
 
-const whatsappNumber = "+919000000000"; // Replace with actual WhatsApp number
+const whatsappNumber = "+919259651812"; // Replace with actual WhatsApp number
 
 export default function Products() {
   const ref = useRef(null);

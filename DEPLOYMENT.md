@@ -163,7 +163,7 @@ The website includes WhatsApp integration for product inquiries. Update the phon
 
 For production, you may want to add:
 ```env
-NEXT_PUBLIC_WHATSAPP_NUMBER=+919000000000
+NEXT_PUBLIC_WHATSAPP_NUMBER=+919259651812
 NEXT_PUBLIC_EMAIL=info@ayurakshak.org
 ```
 
