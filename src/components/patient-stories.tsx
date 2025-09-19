@@ -14,6 +14,8 @@ const patientStories = [
     condition: "Kidney Disease",
     location: "Delhi",
     story:
+      "Ayurvedic treatment at Ayurakshak improved my kidney function significantly in just 6 months.",
+    fullStory:
       "After 6 months of Ayurvedic treatment at Ayurakshak, my kidney function improved significantly. The doctors were very caring and the treatment was completely natural.",
     videoId: "dQw4w9WgXcQ", // Sample YouTube video ID
     thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
@@ -27,6 +29,8 @@ const patientStories = [
     condition: "Diabetes",
     location: "Mumbai",
     story:
+      "Blood sugar levels normalized with natural treatment. No more insulin needed!",
+    fullStory:
       "My blood sugar levels are now completely normal thanks to Ayurakshak's natural treatment. No more insulin injections needed!",
     videoId: "dQw4w9WgXcQ", // Sample YouTube video ID
     thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
@@ -40,6 +44,8 @@ const patientStories = [
     condition: "Heart Disease",
     location: "Ahmedabad",
     story:
+      "Panchakarma therapy helped me avoid heart surgery. Feeling healthier than ever!",
+    fullStory:
       "The Panchakarma therapy and herbal medicines helped me avoid heart surgery. I feel healthier than ever before.",
     videoId: "dQw4w9WgXcQ", // Sample YouTube video ID
     thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
@@ -53,6 +59,8 @@ const patientStories = [
     condition: "Liver Disease",
     location: "Jaipur",
     story:
+      "Ayurakshak's treatment completely reversed my liver damage. Doctors gave me hope!",
+    fullStory:
       "Ayurakshak's treatment reversed my liver damage completely. The doctors explained everything clearly and gave me hope.",
     videoId: "dQw4w9WgXcQ", // Sample YouTube video ID
     thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
@@ -109,76 +117,79 @@ export default function PatientStories() {
             >
               <Card className="h-full border-2 border-orange-200 hover:border-orange-300 transition-all duration-300 warm-shadow bg-white">
                 <CardContent className="p-0">
-                  {/* Video Thumbnail */}
+                  {/* Video Thumbnail - Larger Size */}
                   <div className="relative overflow-hidden rounded-t-lg">
                     <img
                       src={story.thumbnail}
                       alt={`${story.name} testimonial`}
-                      className="w-full h-32 md:h-40 object-cover group-hover:scale-105 transition-transform duration-300"
+                      className="w-full h-44 md:h-50 lg:h-60 object-cover group-hover:scale-105 transition-transform duration-300"
                     />
-                    <div className="absolute inset-0 bg-black/30 flex items-center justify-center">
+                    <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                       <motion.button
                         whileHover={{ scale: 1.1 }}
                         whileTap={{ scale: 0.9 }}
                         onClick={() => openVideo(story.videoId)}
-                        className="bg-orange-600 hover:bg-orange-700 text-white rounded-full p-4 shadow-lg"
+                        className="bg-orange-600 hover:bg-orange-700 text-white rounded-full p-5 shadow-xl"
                       >
-                        <Play className="w-8 h-8 ml-1" />
+                        <Play className="w-10 h-10 ml-1" />
                       </motion.button>
                     </div>
 
                     {/* Treatment Badge */}
-                    <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm rounded-full px-3 py-1">
-                      <span className="text-sm font-semibold text-orange-600">
+                    <div className="absolute top-4 left-4 bg-white/95 backdrop-blur-sm rounded-full px-4 py-2">
+                      <span className="text-sm font-bold text-orange-600">
                         {story.condition}
+                      </span>
+                    </div>
+
+                    {/* Duration Badge */}
+                    <div className="absolute top-4 right-4 bg-orange-600/90 backdrop-blur-sm rounded-full px-3 py-1">
+                      <span className="text-xs font-semibold text-white">
+                        {story.treatmentDuration}
                       </span>
                     </div>
                   </div>
 
-                  {/* Content */}
-                  <div className="p-4 md:p-5">
-                    {/* Rating */}
-                    <div className="flex items-center mb-3">
-                      {[...Array(story.rating)].map((_, i) => (
-                        <Star
-                          key={i}
-                          className="w-4 h-4 text-yellow-500 fill-current"
-                        />
-                      ))}
-                      <span className="ml-2 text-sm text-gray-600">
-                        ({story.rating}.0)
-                      </span>
-                    </div>
-
-                    {/* Quote */}
-                    <div className="relative mb-4">
-                      <Quote className="w-6 h-6 text-orange-300 absolute -top-2 -left-1" />
-                      <p className="text-sm md:text-base text-gray-700 italic pl-4 md:pl-5 leading-relaxed line-clamp-3">
-                        {story.story}
-                      </p>
-                    </div>
-
-                    {/* Patient Info */}
-                    <div className="border-t border-gray-200 pt-4">
-                      <h4 className="font-semibold text-gray-900 mb-1">
-                        {story.name}, {story.age}
-                      </h4>
-                      <p className="text-sm text-gray-600 mb-2">
-                        {story.location}
-                      </p>
-                      <div className="flex justify-between items-center text-sm">
-                        <span className="text-orange-600 font-medium">
-                          Treatment: {story.treatmentDuration}
-                        </span>
-                        <Button
-                          size="sm"
-                          variant="outline"
-                          onClick={() => openVideo(story.videoId)}
-                          className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
-                        >
-                          Watch Story
-                        </Button>
+                  {/* Content - Compact */}
+                  <div className="p-4">
+                    {/* Patient Info & Rating */}
+                    <div className="flex items-center justify-between mb-3">
+                      <div>
+                        <h4 className="font-bold text-gray-900 text-lg">
+                          {story.name}, {story.age}
+                        </h4>
+                        <p className="text-sm text-gray-600">
+                          {story.location}
+                        </p>
                       </div>
+                      <div className="flex items-center">
+                        {[...Array(story.rating)].map((_, i) => (
+                          <Star
+                            key={i}
+                            className="w-4 h-4 text-yellow-500 fill-current"
+                          />
+                        ))}
+                      </div>
+                    </div>
+
+                    {/* Quote - Shorter */}
+                    <div className="relative mb-4">
+                      <Quote className="w-5 h-5 text-orange-300 absolute -top-1 -left-1" />
+                      <p className="text-sm text-gray-700 italic pl-4 leading-relaxed">
+                        "{story.story}"
+                      </p>
+                    </div>
+
+                    {/* Action Button */}
+                    <div className="flex justify-center">
+                      <Button
+                        size="sm"
+                        onClick={() => openVideo(story.videoId)}
+                        className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-full"
+                      >
+                        <Play className="w-4 h-4 mr-2" />
+                        Watch Full Story
+                      </Button>
                     </div>
                   </div>
                 </CardContent>
