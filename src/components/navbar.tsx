@@ -3,6 +3,7 @@
 import { Button } from "@/components/ui/button";
 import { AnimatePresence, motion } from "framer-motion";
 import { ChevronDown, Mail, Menu, Phone, X } from "lucide-react";
+import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 
@@ -12,8 +13,10 @@ const navigation = [
     name: "Services",
     href: "#services",
     dropdown: [
-      { name: "Ayurvedic Treatment", href: "#ayurvedic-treatment" },
+      { name: "Naturopathy & Ayurvedic Treatment", href: "#ayurvedic-treatment" },
       { name: "Panchakarma Therapy", href: "#panchakarma" },
+      { name: "Yoga Therapy", href: "#yoga" },
+      { name: "Diet & Lifestyle", href: "#" },
       { name: "Natural Healing", href: "#natural-healing" },
       { name: "Patient Stories", href: "#patient-stories" },
       { name: "Camps", href: "#camps" },
@@ -62,15 +65,17 @@ export default function Navbar() {
           {/* Logo */}
           <motion.div
             whileHover={{ scale: 1.05 }}
-            className="flex items-center space-x-3"
+            className="flex items-center space-x-3 pointer-cursor"
           >
+            <Link href="/" className="flex-shrink-0">
             <Image
               src="/AyurRakshakImageLogo.jpeg"
               alt="Ayurakshak Logo"
               width={60}
               height={60}
-              className="rounded-full w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16"
+              className="rounded-full w-12 h-12 sm:w-14 sm:h-14 lg:w-16 lg:h-16 pointer-cursor"
             />
+            </Link>
             <div className="block">
               <h1 className="text-lg sm:text-xl lg:text-2xl font-bold text-green-600">
                 Ayurakshak
@@ -119,10 +124,7 @@ export default function Navbar() {
 
           {/* Contact Info & CTA */}
           <div className="hidden lg:flex items-center space-x-4">
-            <div className="flex items-center space-x-2 text-sm text-zinc-400">
-              <Phone className="w-4 h-4" />
-              <span>+91 92596 51812</span>
-            </div>
+            
             <Button className="bg-green-600 hover:bg-green-700 text-white">
               Get Consultation
             </Button>
