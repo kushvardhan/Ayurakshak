@@ -26,7 +26,6 @@ const navigation = [
     name: "Diseases",
     href: "#diseases",
     dropdown: [
-      { name: "Kidney Disease", href: "#kidney-disease" },
     { name: "Liver Disease", href: "#liver-disease" },
     { name: "Cancer", href: "#cancer" },
     { name: "Heart Disease", href: "#heart-disease" },

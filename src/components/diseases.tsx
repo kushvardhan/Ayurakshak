@@ -28,17 +28,6 @@ import { useRef,useState } from "react";
 const diseases = [
   {
     id: 1,
-    icon: Activity,
-    title: "Kidney Disease",
-    description: "If left untreated, it can lead to kidney failure.",
-    fullDescription:
-      "Our Ayurvedic approach to kidney disease focuses on natural detoxification and restoration of kidney function through herbal medicines and Panchakarma therapies.",
-    color: "text-blue-600",
-    bgColor: "bg-blue-50",
-    borderColor: "border-blue-200",
-  },
-  {
-    id: 2,
     icon: Shield,
     title: "Liver Disease",
     description: "Catching it early can prevent liver damage.",
@@ -49,7 +38,7 @@ const diseases = [
     borderColor: "border-green-200",
   },
   {
-    id: 3,
+    id: 2,
     icon: Heart,
     title: "Osteoporosis",
     description: "Weak bones increase fracture risk.",
@@ -60,7 +49,7 @@ const diseases = [
     borderColor: "border-purple-200",
   },
   {
-    id: 4,
+    id: 3,
     icon: ActivitySquare,
     title: "Osteoarthritis",
     description: "Joint pain worsens with age and wear.",
@@ -71,7 +60,7 @@ const diseases = [
     borderColor: "border-pink-200",
   },
   {
-    id: 5,
+    id: 4,
     icon: Bone,
     title: "Rheumatoid Arthritis",
     description: "An autoimmune condition causing painful joints.",
@@ -82,7 +71,7 @@ const diseases = [
     borderColor: "border-red-200",
   },
   {
-    id: 6,
+    id: 5,
     icon: Flame,
     title: "Liver Psoriasis",
     description: "Inflammation can damage liver tissue severely.",
@@ -93,7 +82,7 @@ const diseases = [
     borderColor: "border-orange-200",
   },
   {
-    id: 7,
+    id: 6,
     icon: FlaskRound,
     title: "Fatty Liver",
     description: "Too much fat in the liver can cause long-term damage.",
@@ -104,7 +93,7 @@ const diseases = [
     borderColor: "border-yellow-200",
   },
   {
-    id: 8,
+    id: 7,
     icon: AlertTriangle,
     title: "Portal Hypertension",
     description: "Increased blood pressure in the liver’s veins.",
@@ -115,7 +104,7 @@ const diseases = [
     borderColor: "border-indigo-200",
   },
   {
-    id: 9,
+    id: 8,
     icon: Droplets,
     title: "Oedema",
     description: "Swelling due to fluid retention.",
@@ -126,7 +115,7 @@ const diseases = [
     borderColor: "border-teal-200",
   },
   {
-    id: 10,
+    id: 9,
     icon: Flame,
     title: "Pancreatitis",
     description: "Inflammation of the pancreas causes severe pain.",
@@ -137,7 +126,7 @@ const diseases = [
     borderColor: "border-rose-200",
   },
   {
-    id: 11,
+    id: 10,
     icon: Pill,
     title: "Kidney Stones",
     description: "Crystals in kidneys cause pain and blockages.",
@@ -148,7 +137,7 @@ const diseases = [
     borderColor: "border-cyan-200",
   },
   {
-    id: 12,
+    id: 11,
     icon: Brain,
     title: "Stress",
     description: "Chronic stress affects body and mind.",
@@ -159,7 +148,7 @@ const diseases = [
     borderColor: "border-gray-300",
   },
   {
-    id: 13,
+    id: 12,
     icon: Mars,
     title: "Infertility",
     description: "Difficulty in conceiving naturally.",
@@ -170,7 +159,7 @@ const diseases = [
     borderColor: "border-lime-200",
   },
   {
-    id: 14,
+    id: 13,
     icon: HeartPulse,
     title: "Hypoactive Sexual Desire Disorder",
     description: "Low sexual desire affecting relationships.",
@@ -181,7 +170,7 @@ const diseases = [
     borderColor: "border-fuchsia-200",
   },
   {
-    id: 15,
+    id: 14,
     icon: Microscope,
     title: "Diabetes Mellitus",
     description: "Chronic condition of high blood sugar.",
@@ -192,7 +181,7 @@ const diseases = [
     borderColor: "border-sky-200",
   },
   {
-    id: 16,
+    id: 15,
     icon: Moon,
     title: "Insomnia",
     description: "Difficulty in falling or staying asleep.",
@@ -203,7 +192,7 @@ const diseases = [
     borderColor: "border-violet-200",
   },
   {
-    id: 17,
+    id: 16,
     icon: Stethoscope,
     title: "Cancer",
     description: "Uncontrolled cell growth damaging the body.",
@@ -214,7 +203,7 @@ const diseases = [
     borderColor: "border-emerald-200",
   },
   {
-    id: 18,
+    id: 17,
     icon: Heart,
     title: "Heart Disease",
     description: "Affects heart’s function and circulation.",
@@ -225,7 +214,7 @@ const diseases = [
     borderColor: "border-red-300",
   },
   {
-    id: 19,
+    id: 18,
     icon: Thermometer,
     title: "Blood Pressure",
     description: "High or low blood pressure impacts health.",
@@ -236,7 +225,7 @@ const diseases = [
     borderColor: "border-amber-200",
   },
   {
-    id: 20,
+    id: 19,
     icon: Eye,
     title: "Diabetes",
     description: "A common lifestyle disease with rising cases.",
