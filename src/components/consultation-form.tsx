@@ -29,7 +29,6 @@ interface ConsultationFormData {
 }
 
 const diseases = [
-  "Kidney Disease",
   "Liver Disease",
   "Heart Disease",
   "Cancer",

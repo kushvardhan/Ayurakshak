@@ -16,7 +16,6 @@ const querySchema = z.object({
   email: z.string().email("Invalid email format"),
   mobile: z.string().regex(/^[6-9]\d{9}$/, "Invalid mobile number"),
   enquiry: z.enum([
-    "Kidney Disease",
     "Liver Disease",
     "Cancer",
     "Heart Disease",

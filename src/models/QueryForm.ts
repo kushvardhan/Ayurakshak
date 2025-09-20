@@ -20,7 +20,6 @@ const QueryFormSchema = new Schema(
       type: String,
       required: true,
       enum: [
-        "Kidney Disease",
         "Liver Disease",
         "Cancer",
         "Heart Disease",
