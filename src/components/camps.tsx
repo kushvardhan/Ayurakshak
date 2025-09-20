@@ -143,7 +143,7 @@ export default function Camps() {
                   : "text-gray-600 hover:text-orange-600"
               }`}
             >
-              Today's Events
+              Today&apos;s Events
             </button>
             <button
               onClick={() => setActiveTab("upcoming")}
@@ -361,7 +361,7 @@ export default function Camps() {
             </h3>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
               We organize health camps across India. Contact us to bring our
-              expert Ayurvedic doctors and natural healing services to your
+              expert Ayurvedic & Naturopathy doctors and natural healing services to your
               community.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

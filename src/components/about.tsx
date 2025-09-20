@@ -109,7 +109,7 @@ export default function About() {
             </h3>
             <p className="text-gray-600 leading-relaxed">
               Ayurakshak is a registered naturopathy NGO in India dedicated to making 
-              traditional Ayurvedic healing accessible to all. We partner with local 
+              traditional Naturopathy & Ayurvedic healing accessible to all. We partner with local 
               healers and communities to provide holistic healthcare solutions.
             </p>
             <p className="text-gray-600 leading-relaxed">
@@ -121,7 +121,7 @@ export default function About() {
             {/* Key Points */}
             <div className="space-y-4">
               {[
-                "100% Natural Ayurvedic treatments with zero side effects",
+                "100% Natural Ayurvedic & Naturopathy treatments with zero side effects",
                 "Network of 55+ hospitals and 70+ clinics across India",
                 "900+ certified Ayurveda doctors and Panchakarma therapists",
                 "Success in treating kidney failure, liver failure, and heart diseases"

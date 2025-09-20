@@ -15,9 +15,9 @@ const patientStories = [
     condition: "Cancer Disease",
     location: "Delhi",
     story:
-      "Ayurvedic treatment at Ayurakshak improved function significantly in just 6 months.",
+      "Naturopathy & Ayurvedic treatment at Ayurakshak improved function significantly in just 6 months.",
     fullStory:
-      "After 6 months of Ayurvedic treatment at Ayurakshak, my kidney function improved significantly. The doctors were very caring and the treatment was completely natural.",
+      "After 6 months of Naturopathy & Ayurvedic treatment at Ayurakshak, my kidney function improved significantly. The doctors were very caring and the treatment was completely natural.",
     videoId: "dQw4w9WgXcQ", // Sample YouTube video ID
     thumbnail: "https://img.youtube.com/vi/dQw4w9WgXcQ/maxresdefault.jpg",
     rating: 5,
@@ -101,7 +101,7 @@ export default function PatientStories() {
           </div>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Real stories of healing and hope from patients who found their path
-            to wellness through our natural Ayurvedic treatments.
+            to wellness through our natural Naturopathy & Ayurvedic treatments.
           </p>
         </motion.div>
 
@@ -241,7 +241,7 @@ export default function PatientStories() {
                   className="border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white px-8 py-3 rounded-full"
                   onClick={() =>
                     window.open(
-                      "https://wa.me/919259651812?text=Hi! I would like to know more about Ayurvedic treatment options.",
+                      "https://wa.me/919259651812?text=Hi! I would like to know more about Naturopathy & Ayurvedic treatment options.",
                       "_blank"
                     )
                   }

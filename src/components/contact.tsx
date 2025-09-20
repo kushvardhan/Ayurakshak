@@ -132,7 +132,7 @@ export default function Contact() {
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
             Ready to start your healing journey? Contact us for consultations,
-            partnerships, or any questions about our Ayurvedic treatments.
+            partnerships, or any questions about our Naturopathy & Ayurvedic treatments.
           </p>
         </motion.div>
 
@@ -146,12 +146,12 @@ export default function Contact() {
           >
             <div>
               <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                Let's Start a Conversation
+                Let&apos;s Start a Conversation
               </h3>
               <p className="text-gray-600 leading-relaxed mb-8">
-                We're here to help you on your wellness journey. Whether you
+                We&apos;re here to help you on your wellness journey. Whether you
                 need treatment guidance, want to partner with us, or have
-                questions about our services, we'd love to hear from you.
+                questions about our services, we&apos;d love to hear from you.
               </p>
             </div>
 

@@ -31,7 +31,7 @@ const diseases = [
     title: "Liver Disease",
     description: "Catching it early can prevent liver damage.",
     fullDescription:
-      "Comprehensive liver care using traditional Ayurvedic treatments that help regenerate liver cells and improve overall liver function naturally.",
+      "Comprehensive liver care using traditional Naturopathy & Ayurvedic treatments that help regenerate liver cells and improve overall liver function naturally.",
     color: "text-green-600",
     bgColor: "bg-green-50",
     borderColor: "border-green-200",
@@ -42,7 +42,7 @@ const diseases = [
     title: "Osteoporosis",
     description: "Weak bones increase fracture risk.",
     fullDescription:
-      "Ayurvedic treatments for osteoporosis focus on balancing calcium metabolism, strengthening bones with herbal formulations, and dietary guidance.",
+      "Naturopathy & Ayurvedic treatments for osteoporosis focus on balancing calcium metabolism, strengthening bones with herbal formulations, and dietary guidance.",
     color: "text-purple-600",
     bgColor: "bg-purple-50",
     borderColor: "border-purple-200",
@@ -53,7 +53,7 @@ const diseases = [
     title: "Osteoarthritis",
     description: "Joint pain worsens with age and wear.",
     fullDescription:
-      "Therapies aim to reduce inflammation, lubricate joints, and restore mobility using Panchakarma, massage, and herbal medicines.",
+      "Therapies aim to reduce inflammation, lubricate joints, and restore mobility using Naturopathy & Ayurvedic treatments, massage, and herbal medicines.",
     color: "text-pink-600",
     bgColor: "bg-pink-50",
     borderColor: "border-pink-200",
@@ -64,7 +64,7 @@ const diseases = [
     title: "Rheumatoid Arthritis",
     description: "An autoimmune condition causing painful joints.",
     fullDescription:
-      "Our holistic Ayurvedic care reduces inflammation, boosts immunity, and restores mobility naturally for rheumatoid arthritis patients.",
+      "Our holistic Naturopathy & Ayurvedic care reduces inflammation, boosts immunity, and restores mobility naturally for rheumatoid arthritis patients.",
     color: "text-red-600",
     bgColor: "bg-red-50",
     borderColor: "border-red-200",
@@ -75,7 +75,7 @@ const diseases = [
     title: "Liver Psoriasis",
     description: "Inflammation can damage liver tissue severely.",
     fullDescription:
-      "Ayurveda helps manage liver psoriasis by detoxifying the liver, reducing inflammation, and restoring healthy liver function.",
+      "Naturopathy & Ayurvedic treatments help manage liver psoriasis by detoxifying the liver, reducing inflammation, and restoring healthy liver function.",
     color: "text-orange-600",
     bgColor: "bg-orange-50",
     borderColor: "border-orange-200",
@@ -86,7 +86,7 @@ const diseases = [
     title: "Fatty Liver",
     description: "Too much fat in the liver can cause long-term damage.",
     fullDescription:
-      "We use herbal medicines, dietary corrections, and detox therapies to reverse fatty liver and improve metabolism.",
+      "We use herbal medicines, dietary corrections, and Naturopathy & Ayurvedic treatments to reverse fatty liver and improve metabolism.",
     color: "text-yellow-600",
     bgColor: "bg-yellow-50",
     borderColor: "border-yellow-200",
@@ -97,7 +97,7 @@ const diseases = [
     title: "Portal Hypertension",
     description: "Increased blood pressure in the liver’s veins.",
     fullDescription:
-      "Ayurveda focuses on balancing blood pressure in liver channels, preventing complications, and strengthening digestion.",
+      "Naturopathy & Ayurvedic treatments focus on balancing blood pressure in liver channels, preventing complications, and strengthening digestion.",
     color: "text-indigo-600",
     bgColor: "bg-indigo-50",
     borderColor: "border-indigo-200",
@@ -119,7 +119,7 @@ const diseases = [
     title: "Pancreatitis",
     description: "Inflammation of the pancreas causes severe pain.",
     fullDescription:
-      "Ayurveda supports pancreatic health with herbal medicines, detox therapies, and dietary modifications.",
+      "Naturopathy & Ayurvedic treatments support pancreatic health with herbal medicines, detox therapies, and dietary modifications.",
     color: "text-rose-600",
     bgColor: "bg-rose-50",
     borderColor: "border-rose-200",
@@ -130,7 +130,7 @@ const diseases = [
     title: "Kidney Stones",
     description: "Crystals in kidneys cause pain and blockages.",
     fullDescription:
-      "Herbal medicines dissolve stones naturally and prevent recurrence with detoxification and lifestyle guidance.",
+      "Herbal medicines dissolve stones naturally and prevent recurrence with Naturopathy & Ayurvedic treatments and lifestyle guidance.",
     color: "text-cyan-600",
     bgColor: "bg-cyan-50",
     borderColor: "border-cyan-200",
@@ -141,7 +141,7 @@ const diseases = [
     title: "Stress",
     description: "Chronic stress affects body and mind.",
     fullDescription:
-      "Ayurveda uses meditation, herbs, and therapies like Shirodhara to calm the mind and balance stress hormones.",
+      "Naturopathy & Ayurvedic treatments use meditation, herbs, and therapies like Shirodhara to calm the mind and balance stress hormones.",
     color: "text-gray-700",
     bgColor: "bg-gray-100",
     borderColor: "border-gray-300",
@@ -152,7 +152,7 @@ const diseases = [
     title: "Infertility",
     description: "Difficulty in conceiving naturally.",
     fullDescription:
-      "Ayurvedic therapies balance hormones, improve reproductive health, and enhance fertility in men and women.",
+      "Naturopathy & Ayurvedic treatments balance hormones, improve reproductive health, and enhance fertility in men and women.",
     color: "text-lime-600",
     bgColor: "bg-lime-50",
     borderColor: "border-lime-200",
@@ -163,7 +163,7 @@ const diseases = [
     title: "Hypoactive Sexual Desire Disorder",
     description: "Low sexual desire affecting relationships.",
     fullDescription:
-      "Ayurvedic herbs and therapies restore vitality, improve circulation, and enhance natural desire.",
+      "Naturopathy & Ayurvedic herbs and therapies restore vitality, improve circulation, and enhance natural desire.",
     color: "text-fuchsia-600",
     bgColor: "bg-fuchsia-50",
     borderColor: "border-fuchsia-200",
@@ -174,7 +174,7 @@ const diseases = [
     title: "Diabetes Mellitus",
     description: "Chronic condition of high blood sugar.",
     fullDescription:
-      "Ayurveda helps control diabetes with herbal medicines, lifestyle correction, and Panchakarma therapies.",
+      "Naturopathy & Ayurvedic treatments help control diabetes with herbal medicines, lifestyle correction, and Panchakarma therapies.",
     color: "text-sky-600",
     bgColor: "bg-sky-50",
     borderColor: "border-sky-200",
@@ -196,7 +196,7 @@ const diseases = [
     title: "Cancer",
     description: "Uncontrolled cell growth damaging the body.",
     fullDescription:
-      "Ayurvedic support focuses on immunity, detoxification, and symptom relief alongside conventional treatments.",
+      "Naturopathy & Ayurvedic treatments focus on immunity, detoxification, and symptom relief alongside conventional treatments.",
     color: "text-emerald-600",
     bgColor: "bg-emerald-50",
     borderColor: "border-emerald-200",
@@ -207,7 +207,7 @@ const diseases = [
     title: "Heart Disease",
     description: "Affects heart’s function and circulation.",
     fullDescription:
-      "Ayurveda balances cholesterol, improves blood flow, and strengthens the heart naturally with herbs and therapies.",
+      "Naturopathy & Ayurvedic treatments balances cholesterol, improves blood flow, and strengthens the heart naturally with herbs and therapies.",
     color: "text-red-700",
     bgColor: "bg-red-100",
     borderColor: "border-red-300",
@@ -218,7 +218,7 @@ const diseases = [
     title: "Blood Pressure",
     description: "High or low blood pressure impacts health.",
     fullDescription:
-      "Ayurvedic treatment regulates blood pressure by balancing doshas and improving circulation naturally.",
+      "Naturopathy & Ayurvedic treatments regulate blood pressure by balancing doshas and improving circulation naturally.",
     color: "text-amber-600",
     bgColor: "bg-amber-50",
     borderColor: "border-amber-200",
@@ -229,7 +229,7 @@ const diseases = [
     title: "Diabetes",
     description: "A common lifestyle disease with rising cases.",
     fullDescription:
-      "Specialized Ayurvedic medicines and therapies aim to regulate blood sugar, prevent complications, and improve energy.",
+      "Specialized Naturopathy & Ayurvedic treatments aim to regulate blood sugar, prevent complications, and improve energy.",
     color: "text-green-700",
     bgColor: "bg-green-100",
     borderColor: "border-green-300",
@@ -258,7 +258,7 @@ export default function Diseases() {
             <span className="text-orange-600">We Treat</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Our expert Ayurvedic doctors provide natural, effective treatments
+            Our expert Naturopathy & Ayurvedic doctors provide natural, effective treatments
             for various chronic and acute health conditions with proven results.
           </p>
         </motion.div>
@@ -334,7 +334,7 @@ export default function Diseases() {
               Don&apos;t See Your Condition Listed?
             </h3>
             <p className="text-gray-600 mb-8 max-w-2xl mx-auto">
-              We treat many other conditions with our comprehensive Ayurvedic
+              We treat many other conditions with our comprehensive Naturopathy & Ayurvedic
               approach. Contact our experts for a personalized consultation.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">

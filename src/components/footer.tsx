@@ -27,7 +27,7 @@ const navigation = {
     { name: "Contact", href: "#contact" },
   ],
   services: [
-    { name: "Ayurvedic Treatment", href: "#" },
+    { name: "Naturopathy & Ayurvedic Treatment", href: "#" },
     { name: "Panchakarma Therapy", href: "#" },
     { name: "Health Camps", href: "#" },
     { name: "Consultation", href: "#" },
@@ -298,8 +298,6 @@ export default function Footer() {
               <Link
               title={`kushvardhan39797@gmail.com`}
                 href="https://kush-personal-portfolio-my-portfolio.vercel.app/"
-                target="_blank"
-                rel="noopener noreferrer"
                 className="text-green-500 hover:text-green-400 transition-colors duration-300 font-mono"
               >
                 Kush Vardhan

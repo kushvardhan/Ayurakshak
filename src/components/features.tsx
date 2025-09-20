@@ -21,7 +21,7 @@ const features = [
     icon: Heart,
     title: "100% Natural Treatment",
     description:
-      "Zero side effects with authentic Ayurvedic medicines and therapies",
+      "Zero side effects with authentic Naturopathy & Ayurvedic medicines and therapies",
     color: "text-red-500",
     bgColor: "bg-red-50",
   },
@@ -104,7 +104,7 @@ export default function Features() {
             Why Choose <span className="gradient-text">Ayurakshak</span>
           </h2>
           <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto leading-relaxed">
-            Experience the best of traditional Ayurveda with modern healthcare
+            Experience the best of traditional Naturopathy & Ayurvedic treatments with modern healthcare
             facilities and comprehensive support for your wellness journey.
           </p>
         </motion.div>
@@ -197,7 +197,7 @@ export default function Features() {
             </h3>
             <p className="text-green-100 mb-8 max-w-2xl mx-auto">
               Join thousands of patients who have experienced the power of
-              authentic Ayurvedic treatment with our expert team.
+              authentic Naturopathy & Ayurvedic treatments with our expert team.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
               <motion.a
