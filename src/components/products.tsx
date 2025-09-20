@@ -88,7 +88,7 @@ export default function Products() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 50 }}
+          initial={{ opacity: 0, y: 10 }}
           animate={isInView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.8 }}
           className="text-center mb-16"
@@ -108,7 +108,7 @@ export default function Products() {
           {products.map((product, index) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 30, rotate: 0 }}
+              initial={{ opacity: 0, y: 10, rotate: 0 }}
               animate={isInView ? { opacity: 1, y: 0, rotate: 0 } : {}}
               transition={{
                 duration: 0.8,
@@ -117,19 +117,19 @@ export default function Products() {
                 stiffness: 80,
               }}
               whileHover={{
-                y: -10,
-                scale: 1.00,
+                y: -5,
+                scale: 1.03,
               }}
               className="group"
             >
-              <Card className="overflow-hidden artisan-card gentle-hover texture-overlay healing-energy breathe">
+              <Card className="overflow-hidden artisan-card gentle-hover texture-overlay healing-energy">
                 <div className="relative overflow-hidden">
                   <Image
                     src={product.image}
                     alt={product.name}
                     width={400}
-                    height={800}
-                    className="w-full h-90 object-cover group-hover:scale-105 transition-transform duration-500"
+                    height={600}
+                    className="w-full h-100 object-cover group-hover:scale-103 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
@@ -148,31 +148,31 @@ export default function Products() {
                   </div>
                 </div>
 
-                <CardContent className="p-6">
+                <CardContent className="p-3">
                   {/* Header with Price */}
-                  <div className="flex items-start justify-between mb-3">
+                  <div className="flex items-start justify-between mb-2">
                     <div>
-                      <h3 className="text-xl font-bold text-gray-900 mb-1">
+                      <h3 className="text-lg font-bold text-gray-900 mb-1">
                         {product.name}
                       </h3>
-                      <div className="text-2xl font-bold gradient-text">
+                      <div className="text-regular font-bold gradient-text">
                         {product.price}
                       </div>
                     </div>
-                    <div className="flex items-center space-x-1 bg-yellow-50 px-2 py-1 rounded-full">
+                    <div className="flex items-center space-x-1 bg-yellow-50 px-1 py-1 rounded-full">
                       <Star className="w-4 h-4 text-yellow-500 fill-current" />
-                      <span className="text-sm font-semibold text-yellow-700">
+                      <span className="text-regular font-semibold text-yellow-700">
                         {product.rating}
                       </span>
                     </div>
                   </div>
 
                   {/* Features */}
-                  <div className="flex flex-wrap gap-2 mb-4">
+                  <div className="flex flex-wrap gap-1 mb-3">
                     {product.features.map((feature, featureIndex) => (
                       <span
                         key={featureIndex}
-                        className="bg-green-100 text-green-800 text-xs px-2 py-1 rounded-full font-medium"
+                        className="bg-green-100 text-green-800 text-md px-2 py-1 rounded-full font-medium mr-1"
                       >
                         {feature}
                       </span>
@@ -180,7 +180,7 @@ export default function Products() {
                   </div>
 
                   {/* Collapsible Description */}
-                  <div className="mb-4">
+                  <div className="mb-3">
                     <p className="text-gray-600 text-sm leading-relaxed">
                       {expandedProducts.has(product.id)
                         ? product.description
@@ -188,7 +188,7 @@ export default function Products() {
                     </p>
                     <button
                       onClick={() => toggleDescription(product.id)}
-                      className="text-green-600 hover:text-green-700 text-sm font-medium mt-2 flex items-center transition-colors"
+                      className="text-green-600 hover:text-green-700 text-sm font-medium mt-1 flex items-center transition-colors"
                     >
                       {expandedProducts.has(product.id) ? (
                         <>
@@ -203,7 +203,7 @@ export default function Products() {
                   </div>
 
                   {/* Organic Action Buttons */}
-                  <div className="flex space-x-2 w-full">
+                  <div className="flex space-x-1 w-full">
                     <motion.div
                       whileHover={{
                         scale: 1.05,
@@ -222,7 +222,7 @@ export default function Products() {
                         className="w-full border-2 border-green-500 text-green-700 hover:bg-green-600 hover:text-white font-bold rounded-full transition-all duration-500 artisan-card"
                       >
                         <MessageCircle className="w-4 h-4 mr-1" />
-                        💬 Chat
+                        Chat
                       </Button>
                     </motion.div>
                     <motion.div
@@ -239,7 +239,7 @@ export default function Products() {
                         onClick={() =>
                           handleWhatsAppClick(product.whatsappMessage)
                         }
-                        className="w-full text-white font-bold rounded-full transition-all duration-500 organic-button"
+                        className="w-full text-white bg-green-500 hover:bg-green-600 font-bold rounded-full transition-all duration-500 organic-button"
                         style={{
                           background:
                             "linear-gradient(135deg, #22c55e, #10b981)",
@@ -247,7 +247,7 @@ export default function Products() {
                         }}
                       >
                         <ShoppingCart className="w-4 h-4 mr-1" />
-                        🛒 Buy Now
+                        Buy Now
                       </Button>
                     </motion.div>
                   </div>
