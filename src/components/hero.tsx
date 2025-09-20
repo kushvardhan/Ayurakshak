@@ -43,7 +43,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.6 }}
           >
-            Ayurakshak NGO provides free Ayurvedic treatment, health camps, and
+            Ayurakshak provides Ayurvedic treatment, health camps, and
             natural healing to underserved communities across India. Join us in
             our mission to heal with nature.
           </motion.p>
