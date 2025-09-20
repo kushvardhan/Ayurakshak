@@ -25,13 +25,13 @@ const features = [
     color: "text-red-500",
     bgColor: "bg-red-50",
   },
-  {
-    icon: Shield,
-    title: "Cashless & Reimbursement",
-    description: "100% cashless facility with insurance reimbursement support",
-    color: "text-blue-500",
-    bgColor: "bg-blue-50",
-  },
+ {
+  icon: Shield,
+  title: "Transparent Fee Structure",
+  description: "Clear and upfront fees with no hidden charges",
+  color: "text-blue-500",
+  bgColor: "bg-blue-50",
+},
   {
     icon: Users,
     title: "Expert Team",
@@ -55,16 +55,20 @@ const features = [
     bgColor: "bg-yellow-50",
   },
   {
-    icon: Clock,
-    title: "Easy EMI Options",
-    description:
-      "Pay in EMI with 0% interest facility for affordable treatment",
-    color: "text-indigo-500",
-    bgColor: "bg-indigo-50",
-  },
+  icon: Stethoscope,
+  title: "Affordable Treatment Plans",
+  description: "Customized treatment packages at reasonable fees",
+  color: "text-blue-600",
+  bgColor: "bg-blue-50",
+}
 ];
 
 const treatments = [
+  {
+    icon: Home,
+    title: "Naturopathy",
+    description: "Natural healing methods and therapies",
+  },
   {
     icon: Stethoscope,
     title: "Ayurveda",
@@ -79,11 +83,6 @@ const treatments = [
     icon: Heart,
     title: "Diet & Lifestyle",
     description: "Personalized nutrition and lifestyle guidance",
-  },
-  {
-    icon: Home,
-    title: "Naturopathy",
-    description: "Natural healing methods and therapies",
   },
 ];
 
