@@ -37,7 +37,7 @@ const contactInfo = [
   {
     icon: MapPin,
     title: "Visit Us",
-    content: "H no -1202 NIRMALA A, RADHA VALLEY, MATHURA, UP, India",
+    content: "NIRMALA A, RADHA VALLEY, MATHURA, UP, India",
     href: "https://maps.google.com/?q=H+no+-1202+NIRMALA+A,+RADHA+VALLEY,+MATHURA,+UP,+India",
     color: "text-purple-600",
     bgColor: "bg-purple-50",

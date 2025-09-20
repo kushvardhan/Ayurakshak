@@ -16,6 +16,7 @@ import {
   Youtube,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 const navigation = {
   main: [
@@ -152,7 +153,7 @@ export default function Footer() {
               <div className="flex items-start space-x-3 text-gray-400">
                 <MapPin className="w-4 h-4 mt-1" />
                 <span className="text-sm">
-                  H no -1202 NIRMALA A, RADHA VALLEY,
+                  NIRMALA A, RADHA VALLEY,
                   <br />
                   MATHURA, UP, India
                 </span>
@@ -294,14 +295,15 @@ export default function Footer() {
             </div>
             <div className="flex items-center space-x-2">
               <span>Developed by</span>
-              <a
+              <Link
+              title={`kushvardhan39797@gmail.com`}
                 href="https://kush-personal-portfolio-my-portfolio.vercel.app/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-green-400 hover:text-green-300 transition-colors duration-300 font-medium"
+                className="text-green-500 hover:text-green-400 transition-colors duration-300 font-mono"
               >
                 Kush Vardhan
-              </a>
+              </Link>
             </div>
           </div>
 

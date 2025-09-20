@@ -15,28 +15,28 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title:
-    "Ayurakshak NGO - Free Ayurvedic Treatment & Natural Healing for Communities",
+    "Ayurakshak -  Ayurvedic Treatment & Natural Healing for Communities",
   description:
-    "Ayurakshak NGO provides free Ayurvedic treatment, health camps, and natural healing to underserved communities across India. Join our mission to heal with nature through traditional Ayurveda, Panchakarma therapy, and holistic wellness programs.",
+    "Ayurakshak provides Ayurvedic treatment, health camps, and natural healing to underserved communities across India. Join our mission to heal with nature through traditional Ayurveda, Panchakarma therapy, and holistic wellness programs.",
   keywords:
-    "Ayurakshak NGO, Free Ayurvedic Treatment, Natural Healing, Health Camps, Panchakarma, Herbal Medicine, Community Healthcare, Traditional Medicine, Naturopathy, Liver Disease, Cancer Care, Heart Disease, Diabetes, Blood Pressure, NGO India, Mathura",
+    "Ayurakshak , Ayurvedic Treatment, Natural Healing, Health Camps, Panchakarma, Herbal Medicine, Community Healthcare, Traditional Medicine, Naturopathy, Liver Disease, Cancer Care, Heart Disease, Diabetes, Blood Pressure, NGO India, Mathura",
   authors: [
-    { name: "Ayurakshak NGO" },
+    { name: "Ayurakshak" },
     {
       name: "Kush Vardhan",
       url: "https://kush-personal-portfolio-my-portfolio.vercel.app/",
     },
   ],
   creator: "Kush Vardhan",
-  publisher: "Ayurakshak NGO",
+  publisher: "Ayurakshak",
   openGraph: {
-    title: "Ayurakshak NGO - Free Ayurvedic Treatment & Natural Healing",
+    title: "Ayurakshak - Ayurvedic Treatment & Natural Healing",
     description:
-      "Ayurakshak NGO provides free Ayurvedic treatment, health camps, and natural healing to underserved communities across India. Healing communities with traditional Ayurveda.",
+      "Ayurakshak provides Ayurvedic treatment, health camps, and natural healing to underserved communities across India. Healing communities with traditional Ayurveda.",
     type: "website",
     locale: "en_US",
     url: "https://ayurakshak.org",
-    siteName: "Ayurakshak NGO",
+    siteName: "Ayurakshak ",
     images: [
       {
         url: "/AyurRakshakImageLogo.jpeg",
@@ -48,9 +48,9 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayurakshak NGO - Free Ayurvedic Treatment & Natural Healing",
+    title: "Ayurakshak NGO - Ayurvedic Treatment & Natural Healing",
     description:
-      "Healing communities with traditional Ayurveda. Free health camps and natural treatments.",
+      "Healing communities with traditional Ayurveda. health camps and natural treatments.",
     images: ["/AyurRakshakImageLogo.jpeg"],
     creator: "@Krishna08241873",
   },

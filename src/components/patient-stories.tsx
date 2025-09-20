@@ -120,11 +120,15 @@ export default function PatientStories() {
                 <CardContent className="p-0">
                   {/* Video Thumbnail - Larger Size */}
                   <div className="relative overflow-hidden rounded-t-lg">
-                    <Image
-                      src={story.thumbnail}
-                      alt={`${story.name} testimonial`}
-                      className="w-full h-44 md:h-50 lg:h-60 object-cover group-hover:scale-105 transition-transform duration-300"
-                    />
+                    <div className="relative w-full h-44 md:h-50 lg:h-60 overflow-hidden rounded-t-lg">
+  <Image
+    src={story.thumbnail}
+    alt={`${story.name} testimonial`}
+    fill
+    className="object-cover group-hover:scale-105 transition-transform duration-300"
+  />
+</div>
+
                     <div className="absolute inset-0 bg-black/40 flex items-center justify-center">
                       <motion.button
                         whileHover={{ scale: 1.1 }}
@@ -177,7 +181,7 @@ export default function PatientStories() {
                     <div className="relative mb-4">
                       <Quote className="w-5 h-5 text-orange-300 absolute -top-1 -left-1" />
                       <p className="text-sm text-gray-700 italic pl-4 leading-relaxed">
-                        "{story.story}"
+                        &quot;{story.story}&quot;
                       </p>
                     </div>
 
