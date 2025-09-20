@@ -53,7 +53,7 @@ const products = [
   },
 ];
 
-const whatsappNumber = "+919259651812"; // Replace with actual WhatsApp number
+const whatsappNumber = "+919259651812";
 
 export default function Products() {
   const ref = useRef(null);
@@ -108,7 +108,7 @@ export default function Products() {
           {products.map((product, index) => (
             <motion.div
               key={product.id}
-              initial={{ opacity: 0, y: 50, rotate: 0 }}
+              initial={{ opacity: 0, y: 30, rotate: 0 }}
               animate={isInView ? { opacity: 1, y: 0, rotate: 0 } : {}}
               transition={{
                 duration: 0.8,
@@ -117,9 +117,8 @@ export default function Products() {
                 stiffness: 80,
               }}
               whileHover={{
-                y: -15,
-                rotate: index % 2 === 0 ? 2 : -2,
-                scale: 1.02,
+                y: -10,
+                scale: 1.00,
               }}
               className="group"
             >
@@ -129,8 +128,8 @@ export default function Products() {
                     src={product.image}
                     alt={product.name}
                     width={400}
-                    height={300}
-                    className="w-full h-64 object-cover group-hover:scale-110 transition-transform duration-500"
+                    height={800}
+                    className="w-full h-90 object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
 
