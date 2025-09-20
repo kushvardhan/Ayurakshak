@@ -27,11 +27,25 @@ const navigation = [
     href: "#diseases",
     dropdown: [
       { name: "Kidney Disease", href: "#kidney-disease" },
-      { name: "Liver Disease", href: "#liver-disease" },
-      { name: "Cancer", href: "#cancer" },
-      { name: "Heart Disease", href: "#heart-disease" },
-      { name: "Diabetes", href: "#diabetes" },
-      { name: "Blood Pressure", href: "#blood-pressure" },
+    { name: "Liver Disease", href: "#liver-disease" },
+    { name: "Cancer", href: "#cancer" },
+    { name: "Heart Disease", href: "#heart-disease" },
+    { name: "Diabetes", href: "#diabetes" },
+    { name: "Blood Pressure", href: "#blood-pressure" },
+    { name: "Osteoporosis", href: "#osteoporosis" },
+    { name: "Osteoarthritis", href: "#osteoarthritis" },
+    { name: "Rheumatoid Arthritis", href: "#rheumatoid-arthritis" },
+    { name: "Liver Psoriasis", href: "#liver-psoriasis" },
+    { name: "Fatty Liver", href: "#fatty-liver" },
+    { name: "Portal Hypertension", href: "#portal-hypertension" },
+    { name: "Oedema", href: "#oedema" },
+    { name: "Pancreatitis", href: "#pancreatitis" },
+    { name: "Kidney Stones", href: "#kidney-stones" },
+    { name: "Stress", href: "#stress" },
+    { name: "Infertility", href: "#infertility" },
+    { name: "Hypoactive Sexual Desire Disorder", href: "#hsdd" },
+    { name: "Diabetes Mellitus", href: "#diabetes-mellitus" },
+    { name: "Insomnia", href: "#insomnia" },
     ],
   },
   { name: "About Ayurakshak", href: "#about" },
@@ -104,20 +118,21 @@ export default function Navbar() {
 
                 {/* Dropdown Menu */}
                 {item.dropdown && (
-                  <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
-                    <div className="py-2">
-                      {item.dropdown.map((dropdownItem) => (
-                        <a
-                          key={dropdownItem.name}
-                          href={dropdownItem.href}
-                          className="block px-4 py-2 text-sm text-gray-600 hover:bg-green-50 hover:text-green-600 transition-colors duration-200"
-                        >
-                          {dropdownItem.name}
-                        </a>
-                      ))}
-                    </div>
-                  </div>
-                )}
+  <div className="absolute top-full left-0 mt-2 w-56 bg-white rounded-lg shadow-lg border border-gray-200 opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-300 z-50">
+    <div className="py-2 max-h-64 overflow-y-auto">
+      {item.dropdown.map((dropdownItem) => (
+        <a
+          key={dropdownItem.name}
+          href={dropdownItem.href}
+          className="block px-4 py-2 text-sm text-gray-600 hover:bg-green-50 hover:text-green-600 transition-colors duration-200"
+        >
+          {dropdownItem.name}
+        </a>
+      ))}
+    </div>
+  </div>
+)}
+
               </div>
             ))}
           </div>
