@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     "Ayurakshak NGO provides free Ayurvedic treatment, health camps, and natural healing to underserved communities across India. Join our mission to heal with nature through traditional Ayurveda, Panchakarma therapy, and holistic wellness programs.",
   keywords:
-    "Ayurakshak NGO, Free Ayurvedic Treatment, Natural Healing, Health Camps, Panchakarma, Herbal Medicine, Community Healthcare, Traditional Medicine, Naturopathy, Kidney Disease Treatment, Liver Disease, Cancer Care, Heart Disease, Diabetes, Blood Pressure, NGO India, Mathura",
+    "Ayurakshak NGO, Free Ayurvedic Treatment, Natural Healing, Health Camps, Panchakarma, Herbal Medicine, Community Healthcare, Traditional Medicine, Naturopathy, Liver Disease, Cancer Care, Heart Disease, Diabetes, Blood Pressure, NGO India, Mathura",
   authors: [
     { name: "Ayurakshak NGO" },
     {

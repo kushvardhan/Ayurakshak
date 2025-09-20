@@ -11,10 +11,10 @@ const patientStories = [
     id: 1,
     name: "Rajesh Kumar",
     age: 45,
-    condition: "Kidney Disease",
+    condition: "Cancer Disease",
     location: "Delhi",
     story:
-      "Ayurvedic treatment at Ayurakshak improved my kidney function significantly in just 6 months.",
+      "Ayurvedic treatment at Ayurakshak improved function significantly in just 6 months.",
     fullStory:
       "After 6 months of Ayurvedic treatment at Ayurakshak, my kidney function improved significantly. The doctors were very caring and the treatment was completely natural.",
     videoId: "dQw4w9WgXcQ", // Sample YouTube video ID
