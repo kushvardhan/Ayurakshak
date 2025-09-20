@@ -4,7 +4,6 @@ import { Card, CardContent } from "@/components/ui/card";
 import { motion, useInView } from "framer-motion";
 import {
     Award,
-    Clock,
     Heart,
     Home,
     Leaf,

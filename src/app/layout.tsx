@@ -19,7 +19,7 @@ export const metadata: Metadata = {
   description:
     "Ayurakshak provides Ayurvedic treatment, health camps, and natural healing to underserved communities across India. Join our mission to heal with nature through traditional Ayurveda, Panchakarma therapy, and holistic wellness programs.",
   keywords:
-    "Ayurakshak , Ayurvedic Treatment, Natural Healing, Health Camps, Panchakarma, Herbal Medicine, Community Healthcare, Traditional Medicine, Naturopathy, Liver Disease, Cancer Care, Heart Disease, Diabetes, Blood Pressure, NGO India, Mathura",
+    "Ayurakshak , Ayurvedic Treatment, Natural Healing, Health Camps, Panchakarma, Herbal Medicine, Community Healthcare, Traditional Medicine, Naturopathy, Liver Disease, Cancer Care, Heart Disease, Diabetes, Blood Pressure, India, Mathura",
   authors: [
     { name: "Ayurakshak" },
     {
@@ -42,13 +42,13 @@ export const metadata: Metadata = {
         url: "/AyurRakshakImageLogo.jpeg",
         width: 1200,
         height: 630,
-        alt: "Ayurakshak NGO - Natural Healing & Ayurvedic Care",
+        alt: "Ayurakshak - Natural Healing & Ayurvedic Care",
       },
     ],
   },
   twitter: {
     card: "summary_large_image",
-    title: "Ayurakshak NGO - Ayurvedic Treatment & Natural Healing",
+    title: "Ayurakshak - Ayurvedic Treatment & Natural Healing",
     description:
       "Healing communities with traditional Ayurveda. health camps and natural treatments.",
     images: ["/AyurRakshakImageLogo.jpeg"],

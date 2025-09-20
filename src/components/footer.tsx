@@ -35,7 +35,6 @@ const navigation = {
   support: [
     { name: "Patient Support", href: "#" },
     { name: "Insurance Help", href: "#" },
-    { name: "EMI Options", href: "#" },
     { name: "Find Hospital", href: "#" },
   ],
 };
@@ -131,7 +130,7 @@ export default function Footer() {
               className="text-gray-400 mb-6 leading-relaxed"
             >
               Dedicated to reviving ancient healing wisdom through accessible
-              Ayurveda health camps, medicinal plant gardens, and holistic
+              Naturopathy & Ayurveda health camps, medicinal plant gardens, and holistic
               education.
             </motion.p>
 
@@ -296,12 +295,14 @@ export default function Footer() {
             <div className="flex items-center space-x-2">
               <span>Developed by</span>
               <Link
-              title={`kushvardhan39797@gmail.com`}
-                href="https://kush-personal-portfolio-my-portfolio.vercel.app/"
-                className="text-green-500 hover:text-green-400 transition-colors duration-300 font-mono"
-              >
-                Kush Vardhan
-              </Link>
+  href="https://kush-personal-portfolio-my-portfolio.vercel.app/"
+  title="kushvardhan39797@gmail.com"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="text-green-500 hover:text-green-400 transition-colors duration-300 font-mono"
+>
+  Kush Vardhan
+</Link>
             </div>
           </div>
 

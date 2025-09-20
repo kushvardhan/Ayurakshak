@@ -97,7 +97,7 @@ export default function Products() {
             <span className="gradient-text">Our Natural Products</span>
           </h2>
           <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            Discover our range of authentic Ayurvedic products, crafted with
+            Discover our range of authentic Naturopathy & Ayurvedic products, crafted with
             traditional wisdom and modern quality standards for your wellness
             journey.
           </p>
@@ -219,7 +219,7 @@ export default function Products() {
                         onClick={() =>
                           handleWhatsAppClick(product.whatsappMessage)
                         }
-                        className="w-full border-2 border-green-500 text-green-700 hover:bg-green-600 hover:text-white font-bold rounded-full transition-all duration-500 artisan-card"
+                        className="w-full border-2 border-green-500 text-green-700 hover:text-black hover:bg-green-600 hover:text-white font-bold rounded-full transition-all duration-500 artisan-card"
                       >
                         <MessageCircle className="w-4 h-4 mr-1" />
                         Chat
@@ -269,7 +269,7 @@ export default function Products() {
               Need Personalized Recommendations?
             </h3>
             <p className="text-gray-600 mb-6">
-              Our Ayurvedic experts can help you choose the right products for
+              Our Naturopathy & Ayurvedic experts can help you choose the right products for
               your specific needs.
             </p>
             <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
