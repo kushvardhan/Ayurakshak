@@ -35,9 +35,9 @@ const trustBadges = [
 ];
 
 const stats = [
-  { number: "30,000+", label: "Patients Treated", suffix: "" },
+  { number: "1000+", label: "Patients Treated", suffix: "" },
   { number: "55+", label: "Hospital Network", suffix: "" },
-  { number: "900+", label: "Ayurveda Doctors", suffix: "" },
+  { number: "900+", label: "Naturopathy & Ayurveda Doctors", suffix: "" },
   { number: "100%", label: "Natural Treatment", suffix: "" }
 ];
 
