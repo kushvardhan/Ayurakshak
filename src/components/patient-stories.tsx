@@ -1,6 +1,7 @@
 "use client";
 
 import { Button } from "@/components/ui/button";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion, useInView } from "framer-motion";
 import { Heart, Play, Quote, Star } from "lucide-react";
@@ -119,7 +120,7 @@ export default function PatientStories() {
                 <CardContent className="p-0">
                   {/* Video Thumbnail - Larger Size */}
                   <div className="relative overflow-hidden rounded-t-lg">
-                    <img
+                    <Image
                       src={story.thumbnail}
                       alt={`${story.name} testimonial`}
                       className="w-full h-44 md:h-50 lg:h-60 object-cover group-hover:scale-105 transition-transform duration-300"
