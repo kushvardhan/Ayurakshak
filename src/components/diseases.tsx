@@ -329,7 +329,6 @@ export default function Diseases() {
   onClick={() => setVisibleCount((prev) => prev + 6)}
 >
   Show More
-  <span className="absolute w-2 h-2 bg-green-400 rounded-full top-0 left-0 animate-dot"></span>
 </Button>
   </div>
       )}
