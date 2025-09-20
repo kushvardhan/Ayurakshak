@@ -3,15 +3,34 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent } from "@/components/ui/card";
 import { motion, useInView } from "framer-motion";
-import { Activity, Droplets, Heart, Shield, Zap } from "lucide-react";
-import { useRef } from "react";
+import {
+  Activity,
+  Shield,
+  Heart,
+  ActivitySquare,
+  Bone,
+  Stethoscope,
+  Droplets,
+  Brain,
+  FlaskRound,
+  Flame,
+  Pill,
+  Microscope,
+  AlertTriangle,
+  Thermometer,
+  Moon,
+  HeartPulse,
+  Eye,
+  Mars,
+} from "lucide-react";
+import { useRef,useState } from "react";
 
 const diseases = [
   {
     id: 1,
     icon: Activity,
     title: "Kidney Disease",
-    description: "If left Untreated, it can lead to kidney failure.",
+    description: "If left untreated, it can lead to kidney failure.",
     fullDescription:
       "Our Ayurvedic approach to kidney disease focuses on natural detoxification and restoration of kidney function through herbal medicines and Panchakarma therapies.",
     color: "text-blue-600",
@@ -32,52 +51,209 @@ const diseases = [
   {
     id: 3,
     icon: Heart,
-    title: "Cancer",
-    description: "Early management can reverse cancer.",
+    title: "Osteoporosis",
+    description: "Weak bones increase fracture risk.",
     fullDescription:
-      "Holistic cancer care combining Ayurvedic medicines with lifestyle modifications to support the body's natural healing mechanisms.",
+      "Ayurvedic treatments for osteoporosis focus on balancing calcium metabolism, strengthening bones with herbal formulations, and dietary guidance.",
     color: "text-purple-600",
     bgColor: "bg-purple-50",
     borderColor: "border-purple-200",
   },
   {
     id: 4,
-    icon: Heart,
-    title: "Heart Disease",
-    description: "Manage your heart health to avoid failure.",
+    icon: ActivitySquare,
+    title: "Osteoarthritis",
+    description: "Joint pain worsens with age and wear.",
     fullDescription:
-      "Natural heart care through Ayurvedic treatments that strengthen the cardiovascular system and improve heart function without side effects.",
+      "Therapies aim to reduce inflammation, lubricate joints, and restore mobility using Panchakarma, massage, and herbal medicines.",
+    color: "text-pink-600",
+    bgColor: "bg-pink-50",
+    borderColor: "border-pink-200",
+  },
+  {
+    id: 5,
+    icon: Bone,
+    title: "Rheumatoid Arthritis",
+    description: "An autoimmune condition causing painful joints.",
+    fullDescription:
+      "Our holistic Ayurvedic care reduces inflammation, boosts immunity, and restores mobility naturally for rheumatoid arthritis patients.",
     color: "text-red-600",
     bgColor: "bg-red-50",
     borderColor: "border-red-200",
   },
   {
-    id: 5,
-    icon: Droplets,
-    title: "Blood Pressure",
-    description: "Reverse BP & protect your self.",
+    id: 6,
+    icon: Flame,
+    title: "Liver Psoriasis",
+    description: "Inflammation can damage liver tissue severely.",
     fullDescription:
-      "Effective blood pressure management using natural Ayurvedic remedies that address the root cause and provide long-term relief.",
+      "Ayurveda helps manage liver psoriasis by detoxifying the liver, reducing inflammation, and restoring healthy liver function.",
     color: "text-orange-600",
     bgColor: "bg-orange-50",
     borderColor: "border-orange-200",
   },
   {
-    id: 6,
-    icon: Zap,
-    title: "Diabetes",
-    description: "Reverse diabetes to avoid serious problems.",
+    id: 7,
+    icon: FlaskRound,
+    title: "Fatty Liver",
+    description: "Too much fat in the liver can cause long-term damage.",
     fullDescription:
-      "Comprehensive diabetes management through Ayurvedic medicines and dietary modifications that help regulate blood sugar naturally.",
+      "We use herbal medicines, dietary corrections, and detox therapies to reverse fatty liver and improve metabolism.",
     color: "text-yellow-600",
     bgColor: "bg-yellow-50",
     borderColor: "border-yellow-200",
   },
+  {
+    id: 8,
+    icon: AlertTriangle,
+    title: "Portal Hypertension",
+    description: "Increased blood pressure in the liver’s veins.",
+    fullDescription:
+      "Ayurveda focuses on balancing blood pressure in liver channels, preventing complications, and strengthening digestion.",
+    color: "text-indigo-600",
+    bgColor: "bg-indigo-50",
+    borderColor: "border-indigo-200",
+  },
+  {
+    id: 9,
+    icon: Droplets,
+    title: "Oedema",
+    description: "Swelling due to fluid retention.",
+    fullDescription:
+      "Our treatments aim at improving kidney and liver function to remove excess fluid naturally and reduce swelling.",
+    color: "text-teal-600",
+    bgColor: "bg-teal-50",
+    borderColor: "border-teal-200",
+  },
+  {
+    id: 10,
+    icon: Flame,
+    title: "Pancreatitis",
+    description: "Inflammation of the pancreas causes severe pain.",
+    fullDescription:
+      "Ayurveda supports pancreatic health with herbal medicines, detox therapies, and dietary modifications.",
+    color: "text-rose-600",
+    bgColor: "bg-rose-50",
+    borderColor: "border-rose-200",
+  },
+  {
+    id: 11,
+    icon: Pill,
+    title: "Kidney Stones",
+    description: "Crystals in kidneys cause pain and blockages.",
+    fullDescription:
+      "Herbal medicines dissolve stones naturally and prevent recurrence with detoxification and lifestyle guidance.",
+    color: "text-cyan-600",
+    bgColor: "bg-cyan-50",
+    borderColor: "border-cyan-200",
+  },
+  {
+    id: 12,
+    icon: Brain,
+    title: "Stress",
+    description: "Chronic stress affects body and mind.",
+    fullDescription:
+      "Ayurveda uses meditation, herbs, and therapies like Shirodhara to calm the mind and balance stress hormones.",
+    color: "text-gray-700",
+    bgColor: "bg-gray-100",
+    borderColor: "border-gray-300",
+  },
+  {
+    id: 13,
+    icon: Mars,
+    title: "Infertility",
+    description: "Difficulty in conceiving naturally.",
+    fullDescription:
+      "Ayurvedic therapies balance hormones, improve reproductive health, and enhance fertility in men and women.",
+    color: "text-lime-600",
+    bgColor: "bg-lime-50",
+    borderColor: "border-lime-200",
+  },
+  {
+    id: 14,
+    icon: HeartPulse,
+    title: "Hypoactive Sexual Desire Disorder",
+    description: "Low sexual desire affecting relationships.",
+    fullDescription:
+      "Ayurvedic herbs and therapies restore vitality, improve circulation, and enhance natural desire.",
+    color: "text-fuchsia-600",
+    bgColor: "bg-fuchsia-50",
+    borderColor: "border-fuchsia-200",
+  },
+  {
+    id: 15,
+    icon: Microscope,
+    title: "Diabetes Mellitus",
+    description: "Chronic condition of high blood sugar.",
+    fullDescription:
+      "Ayurveda helps control diabetes with herbal medicines, lifestyle correction, and Panchakarma therapies.",
+    color: "text-sky-600",
+    bgColor: "bg-sky-50",
+    borderColor: "border-sky-200",
+  },
+  {
+    id: 16,
+    icon: Moon,
+    title: "Insomnia",
+    description: "Difficulty in falling or staying asleep.",
+    fullDescription:
+      "Therapies like Abhyanga and Shirodhara with calming herbs promote natural, restful sleep.",
+    color: "text-violet-600",
+    bgColor: "bg-violet-50",
+    borderColor: "border-violet-200",
+  },
+  {
+    id: 17,
+    icon: Stethoscope,
+    title: "Cancer",
+    description: "Uncontrolled cell growth damaging the body.",
+    fullDescription:
+      "Ayurvedic support focuses on immunity, detoxification, and symptom relief alongside conventional treatments.",
+    color: "text-emerald-600",
+    bgColor: "bg-emerald-50",
+    borderColor: "border-emerald-200",
+  },
+  {
+    id: 18,
+    icon: Heart,
+    title: "Heart Disease",
+    description: "Affects heart’s function and circulation.",
+    fullDescription:
+      "Ayurveda balances cholesterol, improves blood flow, and strengthens the heart naturally with herbs and therapies.",
+    color: "text-red-700",
+    bgColor: "bg-red-100",
+    borderColor: "border-red-300",
+  },
+  {
+    id: 19,
+    icon: Thermometer,
+    title: "Blood Pressure",
+    description: "High or low blood pressure impacts health.",
+    fullDescription:
+      "Ayurvedic treatment regulates blood pressure by balancing doshas and improving circulation naturally.",
+    color: "text-amber-600",
+    bgColor: "bg-amber-50",
+    borderColor: "border-amber-200",
+  },
+  {
+    id: 20,
+    icon: Eye,
+    title: "Diabetes",
+    description: "A common lifestyle disease with rising cases.",
+    fullDescription:
+      "Specialized Ayurvedic medicines and therapies aim to regulate blood sugar, prevent complications, and improve energy.",
+    color: "text-green-700",
+    bgColor: "bg-green-100",
+    borderColor: "border-green-300",
+  },
 ];
 
 export default function Diseases() {
+  const [visibleCount, setVisibleCount] = useState(6);
   const ref = useRef(null);
   const isInView = useInView(ref, { once: true, margin: "-100px" });
+
+  
 
   return (
     <section id="diseases" className="py-20 bg-white" ref={ref}>
@@ -100,57 +276,64 @@ export default function Diseases() {
         </motion.div>
 
         {/* Diseases Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-16">
-          {diseases.map((disease, index) => (
-            <motion.div
-              key={disease.id}
-              initial={{ opacity: 0, y: 50 }}
-              animate={isInView ? { opacity: 1, y: 0 } : {}}
-              transition={{ duration: 0.8, delay: index * 0.1 }}
-              whileHover={{ y: -10, scale: 1.02 }}
-              className="group"
-            >
-              <Card
-                className={`h-full border-2 ${disease.borderColor} hover:shadow-xl transition-all duration-300 warm-shadow`}
-              >
-                <CardContent className="p-4 md:p-6 text-center">
-                  <motion.div
-                    whileHover={{ scale: 1.1, rotate: 5 }}
-                    transition={{ duration: 0.3 }}
-                    className={`w-12 h-12 md:w-14 md:h-14 mx-auto mb-3 md:mb-4 rounded-full ${disease.bgColor} flex items-center justify-center`}
-                  >
-                    <disease.icon
-                      className={`w-6 h-6 md:w-7 md:h-7 ${disease.color}`}
-                    />
-                  </motion.div>
+         <div className="mb-16">
+      <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        {diseases.slice(0, visibleCount).map((disease, index) => (
+          <motion.div
+            key={disease.id}
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: index * 0.1 }}
+            whileHover={{ y: -10, scale: 1.02 }}
+            className="group"
+          >
+            <Card className={`h-full border-2 ${disease.borderColor} hover:shadow-xl transition-all duration-300 warm-shadow`}>
+              <CardContent className="p-4 md:p-6 text-center">
+                <motion.div
+                  whileHover={{ scale: 1.1, rotate: 5 }}
+                  transition={{ duration: 0.3 }}
+                  className={`w-12 h-12 md:w-14 md:h-14 mx-auto mb-3 md:mb-4 rounded-full ${disease.bgColor} flex items-center justify-center`}
+                >
+                  <disease.icon className={`w-6 h-6 md:w-7 md:h-7 ${disease.color}`} />
+                </motion.div>
 
-                  <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
-                    {disease.title}
-                  </h3>
-                  <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4 leading-relaxed">
-                    {disease.description}
-                  </p>
-                  <p className="text-xs md:text-sm text-gray-500 mb-4 md:mb-5 line-clamp-2">
-                    {disease.fullDescription}
-                  </p>
+                <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2 md:mb-3">
+                  {disease.title}
+                </h3>
+                <p className="text-sm md:text-base text-gray-600 mb-3 md:mb-4 leading-relaxed">
+                  {disease.description}
+                </p>
+                <p className="text-xs md:text-sm text-gray-500 mb-4 md:mb-5 line-clamp-2">
+                  {disease.fullDescription}
+                </p>
 
-                  <motion.div
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }}>
+                  <Button
+                    size="sm"
+                    className="w-full bg-green-600 hover:bg-green-700 text-white text-sm"
+                    onClick={() => window.open("tel:+919259651812", "_self")}
                   >
-                    <Button
-                      size="sm"
-                      className={`w-full bg-green-600 hover:bg-green-700 text-white text-sm`}
-                      onClick={() => window.open("tel:+919259651812", "_self")}
-                    >
-                      Get Treatment
-                    </Button>
-                  </motion.div>
-                </CardContent>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
+                    Get Treatment
+                  </Button>
+                </motion.div>
+              </CardContent>
+            </Card>
+          </motion.div>
+        ))}
+      </div>
+
+      {visibleCount < diseases.length && (
+        <div className="flex justify-center mt-6">
+<Button
+  className="relative bg-gray-100 text-gray-700 hover:bg-gray-200 px-6 py-2 rounded-md overflow-hidden"
+  onClick={() => setVisibleCount((prev) => prev + 6)}
+>
+  Show More
+  <span className="absolute w-2 h-2 bg-green-400 rounded-full top-0 left-0 animate-dot"></span>
+</Button>
+  </div>
+      )}
+    </div>
 
         {/* Call to Action */}
         <motion.div
